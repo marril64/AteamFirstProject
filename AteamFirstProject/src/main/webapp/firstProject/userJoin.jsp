@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="http://localhost:8181/MyFirstWeb/userJoinForm" method="post">
+	<form action="http://localhost:8181/AteamFirstProject/userJoinForm" method="post">
 		id : <input type="text" name="id">
 		<input type="button" name="idcheck" value="id 중복 확인"><br/>
 		pw : <input type="password" name="pw"><br/>
