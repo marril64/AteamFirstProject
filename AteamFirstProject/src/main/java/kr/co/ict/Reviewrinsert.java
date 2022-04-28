@@ -29,7 +29,7 @@ public class Reviewrinsert extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String reviewName =request.getParameter("reviewName");
+		String reviewName =request.getParameter("reviewrName");
 		String ruser =request.getParameter("ruser");
 		String content =request.getParameter("content");
 		String score = request.getParameter("score");

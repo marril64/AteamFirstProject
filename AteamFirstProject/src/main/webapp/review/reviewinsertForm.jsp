@@ -8,6 +8,7 @@
 </head>
 <body>
 <form action="http://localhost:8181/AteamFirstProject/reviewrinsert" method="post">
+리뷰를 쓸 번호<input type="number" name="boardNum"/></br>
 글쓴이 :<input type="text" name="ruser"/></br>
 글제목 :<input type="text" name="reviewrName"/></br>
 본문:<textarea cols="50" rows="15" name="content"></textarea>
