@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.ict.domain.ProjectUserDAO;
 
 /**
- * Servlet implementation class userJoinForm
+ * Servlet implementation class userUpdateForm
  */
-@WebServlet("/userJoin")
-public class userJoin extends HttpServlet {
+@WebServlet("/userUpdate")
+public class userUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public userJoin() {
+    public userUpdate() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,20 +31,14 @@ public class userJoin extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		String id = request.getParameter("id");
-		String idcheck = request.getParameter("idcheck");
 		String pw = request.getParameter("pw");
-		String pwcheck = request.getParameter("pwcheck");
 		String nick = request.getParameter("nick");
 		int phone = Integer.parseInt(request.getParameter("phone"));
 		
 		ProjectUserDAO dao = ProjectUserDAO.getInstance();
 		
-		if (dao.userJoinCheck(id, pw, phone, nick)) {
-			System.out.println("가입되었습니다.");
-		} else {
-			System.out.println("아이디나 닉네임이 중복되었습니다.");
-		}
-		
+		dao.userUpdateCheck(id, pw, nick, phone);
+		System.out.println("회원정보가 수정되었습니다.");
 	}
 
 }

@@ -1,16 +1,16 @@
 package kr.co.ict;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.ict.domain.ProjectUserDAO;
+
 /**
- * Servlet implementation class userDelete
+ * Servlet implementation class userDeleteForm
  */
 @WebServlet("/userDelete")
 public class userDelete extends HttpServlet {
@@ -25,11 +25,21 @@ public class userDelete extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dp = request.getRequestDispatcher("firstProject/userDelete.jsp");
-		dp.forward(request, response);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		
+		ProjectUserDAO dao = ProjectUserDAO.getInstance();
+		
+		if (dao.userDelete(id, pw)) {
+			System.out.println("정상적으로 탈퇴되었습니다.");
+		} else {
+			System.out.println("id와 pw를 다시 확인해주십시오.");
+		}
 	}
 
 }

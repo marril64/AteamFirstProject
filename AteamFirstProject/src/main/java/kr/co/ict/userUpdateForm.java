@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class userJoin
+ * Servlet implementation class userUpdate
  */
-@WebServlet("/userJoinForm")
-public class userJoinForm extends HttpServlet {
+@WebServlet("/userUpdateForm")
+public class userUpdateForm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public userJoinForm() {
+    public userUpdateForm() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +28,7 @@ public class userJoinForm extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dp = request.getRequestDispatcher("firstProject/userJoin.jsp");
+		RequestDispatcher dp = request.getRequestDispatcher("firstProject/userUpdate.jsp");
 		dp.forward(request, response);
 	}
 

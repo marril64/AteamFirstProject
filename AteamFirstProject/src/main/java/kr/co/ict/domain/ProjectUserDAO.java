@@ -169,4 +169,30 @@ public class ProjectUserDAO {
 		return check;
 	} // id, pw 체크 후 회원탈퇴 기능
 	
+	public void userUpdateCheck(String id, String pw, String nick, int phone) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			con = ds.getConnection();
+			String sql = "UPDATE reuser SET pw = ?, nick = ?, phone = ? WHERE id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, pw);
+			pstmt.setString(2, nick);
+			pstmt.setInt(3, phone);
+			pstmt.setString(4, id);
+			
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+				pstmt.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	} // id로 조회해서 유저 정보를 업데이트하는 기능
+	
 }
