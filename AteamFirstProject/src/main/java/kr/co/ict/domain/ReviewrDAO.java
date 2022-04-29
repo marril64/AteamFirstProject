@@ -151,8 +151,12 @@ public class ReviewrDAO {
 		ReviewrVO reviewr = new ReviewrVO();
 		try {
 			con = ds.getConnection();
+<<<<<<< HEAD
 			
 			String sql = "UPDATE reviewr SET reviewName=?,reviewcontent=? score=? WHERE ruser=?";
+=======
+			String sql = "UPDATE reviewr SET reviewName=?,reviewcontent=?,score=? WHERE ruser=?;";
+>>>>>>> fbe50eca4c03ee9edb07b2940db41d60c75990a2
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(4, ruser);
 			pstmt.setString(1,reviewrName);
