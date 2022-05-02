@@ -195,4 +195,39 @@ public class ProjectUserDAO {
 		}
 	} // id로 조회해서 유저 정보를 업데이트하는 기능
 	
+	public Boolean passwordCheck(String id, String pw) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Boolean check = null;
+		
+		try {
+			con = ds.getConnection();
+			String idCheck = "SELECT * FROM reuser WHERE id = ?";
+			pstmt = con.prepareStatement(idCheck);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				if (rs.getString(3).equals(pw)) {
+					check = true;
+				} else {
+					check = false;
+				}
+			} else {
+				check = false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+				pstmt.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return check;
+	} // id 조회 후 pw 체크하는 기능
+	
 }
