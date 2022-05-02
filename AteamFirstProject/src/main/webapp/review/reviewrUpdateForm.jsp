@@ -21,6 +21,5 @@ ${reviewr}<hr/>
 <input type="submit" value="제출"/>
 <input type="reset" value="초기화"/>
 </form>
-
 </body>
 </html>
