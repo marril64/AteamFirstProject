@@ -29,7 +29,9 @@ ${reviewr}
 	<input type="hidden" value="${reviewr.reviewNum }" name="reviewNum"/>
 	<input type="submit" value="수정"/>
 	</form>
-	<a href="http://localhost:8181/AteamFirstProject/review/reviewinsertForm.jsp">리뷰쓰기</a>	
+	<a href="http://localhost:8181/AteamFirstProject/review/reviewinsertForm.jsp">리뷰쓰기</a>
+	
+		
 	
 
 </body>

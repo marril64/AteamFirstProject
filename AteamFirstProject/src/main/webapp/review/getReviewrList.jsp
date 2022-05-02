@@ -35,6 +35,7 @@
 						<td>${reviwer.bDate}</td>
 						<td>${reviwer.content}</td>
 						<td>${reviwer.score}</td>
+						
 					</tr>
 				</c:forEach>
 			</tbody>
