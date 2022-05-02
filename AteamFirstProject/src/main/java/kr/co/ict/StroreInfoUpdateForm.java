@@ -31,9 +31,9 @@ public class StroreInfoUpdateForm extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String StroreNum = request.getParameter("storeNum");
+		String StoreNum = request.getParameter("storeNum");
 		// 정수로 바꿔줘야함.
-		int storeNum = Integer.parseInt(storeNum);
+		int storeNum = Integer.parseInt(StoreNum);
 		
 		StoreInfoDAO dao = StoreInfoDAO.getInstance();
 		StoreInfoVO storeinfo = dao.getstoreinfoDetail(storeNum);
