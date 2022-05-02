@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.co.ict.domain.ProjectUserDAO;
 
@@ -37,6 +38,8 @@ public class userLogin extends HttpServlet {
 		
 		if (dao.passwordCheck(id, pw)) {
 			System.out.println("로그인 되었습니다. 세션을 발급합니다.");
+			HttpSession session = request.getSession();
+			session.setAttribute("id", id);
 		} else {
 			System.out.println("없는 아이디이거나 비밀번호가 잘못되었습니다.");
 		}
