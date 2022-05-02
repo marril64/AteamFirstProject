@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.co.ict.domain.ProjectUserDAO;
 
@@ -30,15 +31,23 @@ public class userUpdate extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
-		String nick = request.getParameter("nick");
-		int phone = Integer.parseInt(request.getParameter("phone"));
+		HttpSession session = request.getSession();
+		String sId = (String)session.getAttribute("id");
 		
-		ProjectUserDAO dao = ProjectUserDAO.getInstance();
-		
-		dao.userUpdateCheck(id, pw, nick, phone);
-		System.out.println("회원정보가 수정되었습니다.");
+		if (sId != null) {
+			String id = request.getParameter("id");
+			String pw = request.getParameter("pw");
+			String nick = request.getParameter("nick");
+			int phone = Integer.parseInt(request.getParameter("phone"));
+			
+			ProjectUserDAO dao = ProjectUserDAO.getInstance();
+			
+			dao.userUpdateCheck(id, pw, nick, phone);
+			System.out.println("회원정보가 수정되었습니다.");
+		} else {
+			System.out.println("로그인이 필요한 서비스입니다.");
+			response.sendRedirect("http://localhost:8181/AteamFirstProject/userLoginForm");
+		}
 	}
 
 }
