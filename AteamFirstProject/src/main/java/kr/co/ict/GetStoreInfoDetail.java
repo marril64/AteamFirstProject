@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.co.ict.domain.ReviewrDAO;
 import kr.co.ict.domain.ReviewrVO;
+import kr.co.ict.domain.StoreInfoDAO;
 import kr.co.ict.domain.StoreInfoVO;
 
 /**
@@ -39,9 +40,9 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		// 바뀐 글 번호가 잘 나오는지 체크
 		System.out.println("조회예정인 글번호 : " + storeNum);
 		// DAO를 생성하세요.
-		ReviewrDAO dao = ReviewrDAO.getInstance();
+		StoreInfoDAO dao = StoreInfoDAO.getInstance();
 		// DAO에서 호출한 디테일 글 정보를 저장해주세요.
-		StoreInfoVO storeinfo = dao.getStoreInfoDetail(storeNum);
+		StoreInfoVO storeinfo = dao.getstoreinfoDetail(storeNum);
 		// 얻어온 글 정보를 디버깅해주세요.
 		System.out.println(storeinfo);
 		// 바인딩해주세요.

@@ -1,5 +1,6 @@
 package kr.co.ict.domain;
 
+import java.awt.Menu;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -82,7 +83,12 @@ private DataSource ds = null;
 		}
 		return storeinfoList;
 	}// getreviewrList() 끝나는 지점.
-	public StoreInfoVO getstroeinfoDetail(int storeNum) {
+
+	
+	
+	
+	
+	public StoreInfoVO getstoreinfoDetail(int storeNum) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;//ResultSet은 실행쿼리문이 SELECT 구문인 경우 결과값을 받기 위해 필요합니다.
@@ -90,7 +96,7 @@ private DataSource ds = null;
 		
 		try {
 			con = ds.getConnection();
-			String sql = "SELECT * FROM reviewr WHERE reviewNum=?";
+			String sql = "SELECT * FROM store WHERE storeNum=?";
 			
 			pstmt = con.prepareStatement(sql);
 			
@@ -123,7 +129,7 @@ private DataSource ds = null;
 		}
 		return storeinfo;
 	}
-	public ReviewrVO storeinfoDelete(int storeNum) {
+	public StoreInfoVO storeinfoDelete(int storeNum) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		StoreInfoVO storeinfo = new StoreInfoVO();
@@ -145,20 +151,21 @@ private DataSource ds = null;
 			}return storeinfo;
 		}
 	}
-	public ReviewrVO reviewupdate(String ruser, String reviewrName ,String content ,int score) {
+	public StoreInfoVO storeinfoupdate(String storeName, String storeContent, String storeAdd, String storeTime, int storePhone) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		StoreInfoVO reviewr = new StoreInfoVO();
+		StoreInfoVO storeinfo = new StoreInfoVO();
 		try {
 			con = ds.getConnection();
 			
-			String sql = "UPDATE storeinfo SET storeName=?,storecontent=? storeadd=? WHERE ruser=?";
-			pstmt = con.prepareStatement(sql);
-			
-			pstmt.setString(2, storeName);
-			pstmt.setString(4, storeContent);
-			pstmt.setInt(3, score);
-			pstmt.setString(4, ruser);
+			String sql = "UPDATE storeinfo SET storeName=?,storeContent=?,storeAdd=?, storeTime=?, storePhone = ? WHERE =?";
+			pstmt = con.prepareStatement(sql);			
+			pstmt.setString(1, storeName);
+			pstmt.setString(2, storeContent);
+			pstmt.setString(3, storeAdd);
+			pstmt.setString(4, storeTime);
+			pstmt.setInt(5, storePhone);
+			pstmt.setString(6, storeName);
 			pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -171,7 +178,7 @@ private DataSource ds = null;
 			}
 		}return storeinfo;
 	}
-	public void reviewrInsert(String reviewName,String content,String ruser,int score,int boardNum) {
+	public void storeinfoInsert(String storeName, String storeContent, String storeAdd, String storeTime, int storePhone, String menu) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		
@@ -179,13 +186,15 @@ private DataSource ds = null;
 		try {
 			con = ds.getConnection();
 			
-			String sql = "INSERT INTO reviewr(boardNum,reviewName,reviewcontent,ruser,score) VALUES(?,?,?,?,?);";
+			String sql = "INSERT INTO storeinfo(storeName, StoreContent, storeAdd, storeTime, storePhone, menu) VALUES(?,?,?,?,?,?);";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, boardNum);
-			pstmt.setString(2, reviewName);
-			pstmt.setString(3, content);
-			pstmt.setString(4, ruser);
-			pstmt.setInt(5, score);
+			pstmt.setString(1, storeName);
+			pstmt.setString(2, storeContent);
+			pstmt.setString(3, storeAdd);
+			pstmt.setString(4, storeTime);
+			pstmt.setInt(5, storePhone);
+			pstmt.setString(6, storeName);
+			pstmt.setString(7, menu);
 			pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
