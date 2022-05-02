@@ -12,8 +12,6 @@ public class StoreInfoVO {
 		private int storePhone;
 		private String menu;
 		private String storeContent;
-		
-		
 		public int getStroeNum() {
 			return stroeNum;
 		}
@@ -62,7 +60,7 @@ public class StoreInfoVO {
 					+ ", storeAdd=" + storeAdd + ", storePhone=" + storePhone + ", menu=" + menu + ", storeContent="
 					+ storeContent + "]";
 		}
-	
-		
 }
+		
+
 

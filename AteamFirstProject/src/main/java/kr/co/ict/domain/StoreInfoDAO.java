@@ -151,7 +151,7 @@ private DataSource ds = null;
 			}return storeinfo;
 		}
 	}
-	public StoreInfoVO storeinfoupdate(String storeName, String storeContent, String storeAdd, String storeTime, int storePhone) {
+	public StoreInfoVO storeinfoupdate(String storeName, String storeContent, String storeAdd, String storeTime, int storePhone, String menu) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		StoreInfoVO storeinfo = new StoreInfoVO();

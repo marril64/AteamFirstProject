@@ -48,7 +48,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		// 바인딩해주세요.
 		request.setAttribute("storeinfo", storeinfo);
 		// 포워딩해주세요.(/board/boardDetail.jsp로)
-		RequestDispatcher dp = request.getRequestDispatcher("/storeinfo/StoreInfoDetail.jsp");
+		RequestDispatcher dp = request.getRequestDispatcher("/storeinfo/StoreinfoDetail.jsp");
 		dp.forward(request, response);
 	}
 	/**
