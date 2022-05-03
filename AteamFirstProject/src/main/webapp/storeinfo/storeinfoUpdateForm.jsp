@@ -10,11 +10,11 @@
 <body>
 ${storeinfo}<hr/>
 <form action="http://localhost:8181/AteamFirstProject/storeinfoupdate" method="post">
-가게이름 :<input type="text" name="storeName" value="${stoerinfo.storeName }"/></br>
-소개 :<textarea cols="50" rows="15" name="storeContent" ${stoerinfo.storeContent }></textarea></br>
-가게주소 :<input type="text" name="storeAdd" value="${stoerinfo.storeAdd }"/></br>
-전화번호 :<input type="text" name="storePhone" value="${stoerinfo.storePhone }"/></br>
-영업시간 : <input type="text" name="storeTime" value="${stoerinfo.storeTime }"/></br>
+가게이름 :<input type="text" name="storeName" value="${storeinfo.storeName }"/></br>
+소개 :<textarea cols="50" rows="15" name="storeContent" ${storeinfo.storeContent }></textarea></br>
+가게주소 :<input type="text" name="storeAdd" value="${storeinfo.storeAdd }"/></br>
+전화번호 :<input type="text" name="storePhone" value="${storeinfo.storePhone }"/></br>
+영업시간 : <input type="text" name="storeTime" value="${storeinfo.storeTime }"/></br>
 <input type="submit" value="제출"/>
 <input type="reset" value="초기화"/>
 </body>
