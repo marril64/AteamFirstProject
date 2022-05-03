@@ -230,4 +230,35 @@ public class ProjectUserDAO {
 		return check;
 	} // id 조회 후 pw 체크하는 기능
 	
+	public ProjectUserVO getUserInfo(String userId) {
+		Connection con = null;
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		ProjectUserVO user = new ProjectUserVO();
+		try {
+			con = ds.getConnection();
+			String sql = "SELECT * FROM reuser WHERE id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				user.setUserNum(rs.getInt(1));
+				user.setId(rs.getString(2));
+				user.setPhone(rs.getInt(4));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+				pstmt.close();
+				rs.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		return user;
+	} // id로 회원정보 조회, 출력
+	
 }

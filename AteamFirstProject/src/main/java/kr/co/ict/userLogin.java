@@ -40,6 +40,7 @@ public class userLogin extends HttpServlet {
 			System.out.println("로그인 되었습니다. 세션을 발급합니다.");
 			HttpSession session = request.getSession();
 			session.setAttribute("id", id);
+			response.sendRedirect("http://localhost:8181/AteamFirstProject/firstProject/userInfo.jsp");
 		} else {
 			System.out.println("없는 아이디이거나 비밀번호가 잘못되었습니다.");
 		}

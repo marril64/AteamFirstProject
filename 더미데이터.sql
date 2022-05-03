@@ -19,7 +19,7 @@ create table reviewr (
 );
 
 create table storeinfo (
-	stroeNum int primary key auto_increment,
+	storeNum int primary key auto_increment,
     storeName varchar(10) not null,
 	storeTime varchar(20) not null,
     storeAdd varchar(50) not null,
