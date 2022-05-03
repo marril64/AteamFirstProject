@@ -151,7 +151,7 @@ private DataSource ds = null;
 			}return storeinfo;
 		}
 	}
-	public StoreInfoVO storeinfoupdate(String storeName, String storeContent, String storeAdd, String storeTime, int storePhone, String menu) {
+	public StoreInfoVO storeinfoupdate(String storeName, String storeContent, String storeAdd, String storeTime, int storePhone, int storeNum) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		StoreInfoVO storeinfo = new StoreInfoVO();
@@ -165,7 +165,7 @@ private DataSource ds = null;
 			pstmt.setString(3, storeAdd);
 			pstmt.setString(4, storeTime);
 			pstmt.setInt(5, storePhone);
-			pstmt.setString(6, storeName);
+			pstmt.setInt(6, storeNum);
 			pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -193,8 +193,7 @@ private DataSource ds = null;
 			pstmt.setString(3, storeAdd);
 			pstmt.setString(4, storeTime);
 			pstmt.setInt(5, storePhone);
-			pstmt.setString(6, storeName);
-			pstmt.setString(7, menu);
+			pstmt.setString(6, menu);
 			pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();

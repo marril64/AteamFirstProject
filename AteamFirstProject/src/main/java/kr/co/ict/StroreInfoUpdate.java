@@ -40,12 +40,11 @@ public class StroreInfoUpdate extends HttpServlet {
 		String storeTime =request.getParameter("storeTime");
 		String storeAdd = request.getParameter("storeAdd");
 		int storePhone = Integer.parseInt(request.getParameter("storePhone"));
-		String menu = request.getParameter("menu");
 
 		int StoreNum = Integer.parseInt(request.getParameter("storeNum"));			
 		
         StoreInfoDAO dao = StoreInfoDAO.getInstance();
-        StoreInfoVO storeinfo = dao.storeinfoupdate(storeName, storeContent, storeTime, storeAdd, storePhone, menu);
+        StoreInfoVO storeinfo = dao.storeinfoupdate(storeName, storeContent, storeTime, storeAdd, storePhone, StoreNum);
 		
 		request.setAttribute("storeinfo", storeinfo);
 		// 포워딩해주세요.(/board/boardDetail.jsp로)
