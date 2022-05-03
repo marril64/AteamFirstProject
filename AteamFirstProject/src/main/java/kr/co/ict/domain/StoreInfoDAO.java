@@ -56,7 +56,7 @@ private DataSource ds = null;
 				System.out.println("집어넣기 전 : " + storeinfoList);
 				// setter로 다 집어넣기
 				// int를 받아올때는 rs.getInt(), Date를 받아올때는 getDate()를 씁니다.
-				storeinfo.setStroeNum(rs.getInt(1));
+				storeinfo.setStoreNum(rs.getInt(1));
 				storeinfo.setStoreName(rs.getString(2));
 				storeinfo.setMenu(rs.getString(6));
 				storeinfo.setStoreContent(rs.getString(7));
@@ -97,7 +97,7 @@ private DataSource ds = null;
 		
 		try {
 			con = ds.getConnection();
-			String sql = "SELECT * FROM store WHERE storeNum=?";
+			String sql = "SELECT * FROM storeinfo WHERE storeNum=?";
 			
 			pstmt = con.prepareStatement(sql);
 			
@@ -106,14 +106,13 @@ private DataSource ds = null;
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				storeinfo.setStroeNum(rs.getInt(1));
+				storeinfo.setStoreNum(rs.getInt(1));
 				storeinfo.setStoreName(rs.getString(2));
-				storeinfo.setMenu(rs.getString(3));
-				storeinfo.setStoreContent(rs.getString(4));
-				storeinfo.setStoreAdd(rs.getString(5));
-				storeinfo.setStorePhone(rs.getInt(6));
-				storeinfo.setStoreTime(rs.getString(7));
-	
+				storeinfo.setStoreTime(rs.getString(3));
+				storeinfo.setStoreAdd(rs.getString(4));
+				storeinfo.setStorePhone(rs.getInt(5));
+				storeinfo.setMenu(rs.getString(6));
+				storeinfo.setStoreContent(rs.getString(7));
 			}else {
 				System.out.println("계정이 없습니다.");
 			}

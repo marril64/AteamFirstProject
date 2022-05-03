@@ -5,18 +5,18 @@ import java.sql.Date;
 public class StoreInfoVO {
 	
 		
-		private int stroeNum;
+		private int storeNum;
 		private String storeName;
 		private String storeTime;
 		private String storeAdd;
 		private int storePhone;
 		private String menu;
 		private String storeContent;
-		public int getStroeNum() {
-			return stroeNum;
+		public int getStoreNum() {
+			return storeNum;
 		}
-		public void setStroeNum(int stroeNum) {
-			this.stroeNum = stroeNum;
+		public void setStoreNum(int storeNum) {
+			this.storeNum = storeNum;
 		}
 		public String getStoreName() {
 			return storeName;
@@ -56,7 +56,7 @@ public class StoreInfoVO {
 		}
 		@Override
 		public String toString() {
-			return "StoreInfoVO [stroeNum=" + stroeNum + ", storeName=" + storeName + ", storeTime=" + storeTime
+			return "StoreInfoVO [storeNum=" + storeNum + ", storeName=" + storeName + ", storeTime=" + storeTime
 					+ ", storeAdd=" + storeAdd + ", storePhone=" + storePhone + ", menu=" + menu + ", storeContent="
 					+ storeContent + "]";
 		}

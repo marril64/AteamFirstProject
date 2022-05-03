@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +28,7 @@
 					<tr>
 						<td>${storeinfo.storeNum}</td>
 						<!-- <td>${storeinfo.storeName}</td> -->
-						<td><a href="http://localhost:8181/AteamFirstProject/getstoredetail?storeNum=${storeinfo.storeNum}">${storeinfo.storeName}</a></td>
+						<td><a href="http://localhost:8181/AteamFirstProject/getStoreInfoDetail?storeNum=${storeinfo.storeNum}">${storeinfo.storeName}</a></td>
 						<td>${storeinfo.storeTime}</td>
 						<td>${storeinfo.storeAdd}</td>
 						<td>${storeinfo.storePhone}</td>
