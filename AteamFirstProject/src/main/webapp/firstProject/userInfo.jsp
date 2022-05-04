@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:if test="${sessionScope.user.id eq null}">
+	<% response.sendRedirect("http://localhost:8181/AteamFirstProject/firstProject/userLogin.jsp"); %>
+</c:if>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +18,8 @@
 	<form action="#" method="post">
 		<input type="submit" value="즐겨찾기">
 	</form>
-	<form action="http://localhost:8181/AteamFirstProject/userUpdateForm" method="post">
+	<form action="http://localhost:8181/AteamFirstProject/firstProject/userUpdate.jsp" method="post">
+		<input type="hidden" name="id" value="${sessionScope.user}">
 		<input type="submit" value="수정하기">
 	</form>
 	<form action="#" method="post">
