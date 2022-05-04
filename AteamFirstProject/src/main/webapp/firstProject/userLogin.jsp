@@ -15,7 +15,8 @@
 		로그인 창입니다.<br/>
 		id : <input type="text" name="id"><br/>
 		pw : <input type="password" name="pw"><br/>
-		<input type="submit" value="Login">
+		<input type="submit" value="로그인">
+		<button><a href="http://localhost:8181/AteamFirstProject/firstProject/userJoin.jsp">회원가입</a></button>
 	</form>
 </body>
 </html>
