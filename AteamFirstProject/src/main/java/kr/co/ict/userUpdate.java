@@ -33,9 +33,9 @@ public class userUpdate extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		String sId = (String)session.getAttribute("id");
+		String id = request.getParameter("id");
 		
-		if (sId != null) {
-			String id = request.getParameter("id");
+		if (sId != null && sId.equals(id)) {
 			String pw = request.getParameter("pw");
 			String nick = request.getParameter("nick");
 			int phone = Integer.parseInt(request.getParameter("phone"));
@@ -44,6 +44,7 @@ public class userUpdate extends HttpServlet {
 			
 			dao.userUpdateCheck(id, pw, nick, phone);
 			System.out.println("회원정보가 수정되었습니다.");
+			response.sendRedirect("http://localhost:8181/AteamFirstProject/firstProject/userInfo.jsp");
 		} else {
 			System.out.println("로그인이 필요한 서비스입니다.");
 			response.sendRedirect("http://localhost:8181/AteamFirstProject/userLoginForm");

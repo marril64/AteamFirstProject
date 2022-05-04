@@ -6,9 +6,8 @@ public class ProjectUserVO {
 	private String id;
 	private String pw;
 	private int phone;
-	private String rhit;
+	private String nick;
 	private String userbookmark;
-	private String ruser;
 	
 	public int getUserNum() {
 		return userNum;
@@ -42,12 +41,12 @@ public class ProjectUserVO {
 		this.phone = phone;
 	}
 	
-	public String getRhit() {
-		return rhit;
+	public String getNick() {
+		return nick;
 	}
 	
-	public void setRhit(String rhit) {
-		this.rhit = rhit;
+	public void setNick(String nick) {
+		this.nick = nick;
 	}
 	
 	public String getUserbookmark() {
@@ -57,19 +56,11 @@ public class ProjectUserVO {
 	public void setUserbookmark(String userbookmark) {
 		this.userbookmark = userbookmark;
 	}
-	
-	public String getRuser() {
-		return ruser;
-	}
-	
-	public void setRuser(String ruser) {
-		this.ruser = ruser;
-	}
-	
+
 	@Override
 	public String toString() {
-		return "ProjectUserVO [userNum=" + userNum + ", id=" + id + ", pw=" + pw + ", phone=" + phone + ", rhit=" + rhit
-				+ ", userbookmark=" + userbookmark + ", ruser=" + ruser + "]";
+		return "ProjectUserVO [userNum=" + userNum + ", id=" + id + ", pw=" + pw + ", phone=" + phone + ", nick=" + nick
+				+ ", userbookmark=" + userbookmark + "]";
 	}
 	
 }

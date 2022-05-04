@@ -51,10 +51,9 @@ public class ProjectUserDAO {
 				user.setId(rs.getString(2));
 				user.setPw(rs.getString(3));
 				user.setPhone(rs.getInt(4));
-				user.setRhit(rs.getString(5));
+				user.setNick(rs.getString(5));
 				user.setUserbookmark(rs.getString(6));
-				user.setRuser(rs.getString(7));
-
+				
 				userList.add(user);
 			}
 			
@@ -241,11 +240,16 @@ public class ProjectUserDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, userId);
 			rs = pstmt.executeQuery();
+			
 			if(rs.next()) {
 				user.setUserNum(rs.getInt(1));
 				user.setId(rs.getString(2));
+				user.setPw(rs.getString(3));
 				user.setPhone(rs.getInt(4));
+				user.setNick(rs.getString(5));
+				user.setUserbookmark(rs.getString(6));
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

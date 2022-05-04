@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.co.ict.domain.ProjectUserDAO;
+import kr.co.ict.domain.ProjectUserVO;
 
 /**
  * Servlet implementation class userLogin
@@ -37,9 +38,10 @@ public class userLogin extends HttpServlet {
 		ProjectUserDAO dao = ProjectUserDAO.getInstance();
 		
 		if (dao.passwordCheck(id, pw)) {
+			ProjectUserVO user = dao.getUserInfo(id);
 			System.out.println("로그인 되었습니다. 세션을 발급합니다.");
 			HttpSession session = request.getSession();
-			session.setAttribute("id", id);
+			session.setAttribute("user", user);
 			response.sendRedirect("http://localhost:8181/AteamFirstProject/firstProject/userInfo.jsp");
 		} else {
 			System.out.println("없는 아이디이거나 비밀번호가 잘못되었습니다.");

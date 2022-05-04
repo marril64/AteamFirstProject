@@ -8,11 +8,11 @@
 </head>
 <body>
 	<form action="http://localhost:8181/AteamFirstProject/userUpdate" method="post">
-		변경하실 id를 입력해주시고 비밀번호와 닉네임, 전화번호를 변경해 주십시오.<br/>
-		id : <input type="text" name="id"><br/>
-		pw : <input type="password" name="pw"><br/>
-		nick : <input type="text" name="nick"><br/>
-		phone : <input type="tel" name="phone"><br/>
+		<h2>회원정보 변경</h2>
+		id : <input type="text" name="id" value="${sessionScope.user.id}" readonly><br/>
+		pw : <input type="password" name="pw" value="${sessionScope.user.pw}"><br/>
+		nick : <input type="text" name="nick" value="${sessionScope.user.nick}"><br/>
+		phone : <input type="tel" name="phone" value="${sessionScope.user.phone}"><br/>
 		<input type="submit" value="바꾸기">
 	</form>
 </body>
