@@ -151,15 +151,16 @@ private DataSource ds = null;
 			}return storeinfo;
 		}
 	}
-	public StoreInfoVO storeinfoupdate(String storeName, String storeContent, String storeAdd, String storeTime, int storePhone, int storeNum) {
+	public StoreInfoVO storeinfoupdate(String storeName, String storeContent, String storeAdd, String storeTime, int storePhone, String menu, int storeNum) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		StoreInfoVO storeinfo = new StoreInfoVO();
 		try {
 			con = ds.getConnection();
 			
-			String sql = "UPDATE storeinfo SET storeName=?,storeContent=?,storeAdd=?, storeTime=?, storePhone = ? WHERE =?";
-			pstmt = con.prepareStatement(sql);			
+			String sql = "UPDATE storeinfo SET storeName=?,storeContent=?,storeAdd=?, storeTime=?, storePhone = ? WHERE storeNum =?";
+			pstmt = con.prepareStatement(sql);	
+			
 			pstmt.setString(1, storeName);
 			pstmt.setString(2, storeContent);
 			pstmt.setString(3, storeAdd);
@@ -178,7 +179,7 @@ private DataSource ds = null;
 			}
 		}return storeinfo;
 	}
-	public void storeinfoInsert(String storeName, String storeContent, String storeAdd, String storeTime, int storePhone, String menu) {
+	public void storeinfoInsert(String storeName, String storeContent, String storeAdd, String storeTime, int storePhone, String menu, int storeNum) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		
@@ -186,14 +187,17 @@ private DataSource ds = null;
 		try {
 			con = ds.getConnection();
 			
-			String sql = "INSERT INTO storeinfo(storeName, StoreContent, storeAdd, storeTime, storePhone, menu) VALUES(?,?,?,?,?,?);";
+			String sql = "INSERT INTO storeinfo(storeName, StoreContent, storeAdd, storeTime, storePhone, menu,storeNum) VALUES(?,?,?,?,?,?,?);";
 			pstmt = con.prepareStatement(sql);
+			
 			pstmt.setString(1, storeName);
 			pstmt.setString(2, storeContent);
 			pstmt.setString(3, storeAdd);
 			pstmt.setString(4, storeTime);
 			pstmt.setInt(5, storePhone);
 			pstmt.setString(6, menu);
+			pstmt.setInt(7, storeNum);
+			
 			pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();

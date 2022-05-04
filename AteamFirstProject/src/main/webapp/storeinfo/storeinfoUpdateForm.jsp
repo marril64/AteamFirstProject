@@ -9,7 +9,7 @@
 </head>
 <body>
 ${storeinfo}<hr/>
-<form action="http://localhost:8181/AteamFirstProject/storeinfoupdate" method="post">
+<form action="http://localhost:8181/AteamFirstProject/StroreInfoUpdate" method="post">
 가게 소개 번호 : <input type="text" name="storeNum" readonly value="${storeinfo.storeNum}"><br/>
 가게이름 :<input type="text" name="storeName" value="${storeinfo.storeName }"/></br>
 소개 :<textarea cols="50" rows="15" name="storeContent" ${storeinfo.storeContent }></textarea></br>

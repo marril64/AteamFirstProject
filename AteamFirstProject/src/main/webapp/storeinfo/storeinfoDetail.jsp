@@ -30,7 +30,7 @@ ${storeinfo }
 	<input type="hidden" value="${storeinfo.storeNum }" name="storeNum"/>
 	<input type="submit" value="수정"/>
 	</form>
-	<a href="http://localhost:8181/AteamFirstProject/storeinfo/storeinfoinsertForm.jsp">작성하기</a>	
+	<a href="http://localhost:8181/AteamFirstProject/storeinfo/storeinfoInsertForm.jsp"><button>작성하기</a></button>	
 	
 </body>
 </html>

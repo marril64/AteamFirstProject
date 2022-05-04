@@ -29,7 +29,7 @@ public class StoreInfoInsert extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
+				request.setCharacterEncoding("utf-8");
 
 				String storeName =request.getParameter("storeName");
 				String storeContent =request.getParameter("storeContent");
@@ -37,11 +37,11 @@ public class StoreInfoInsert extends HttpServlet {
 				String storeAdd = request.getParameter("storeAdd");
 				int storePhone = Integer.parseInt(request.getParameter("storePhone"));
 				String menu = request.getParameter("menu");
-		
+				int StoreNum = Integer.parseInt(request.getParameter("storeNum"));		
 				
 				StoreInfoDAO dao = StoreInfoDAO.getInstance();
-				dao.storeinfoInsert(storeName, storeContent, storeTime, storeAdd, storePhone, menu);
-		        response.sendRedirect("http://localhost:8181/AteamFirstProject/getstoreinfolist");
+				dao.storeinfoInsert(storeName, storeContent, storeTime, storeAdd, storePhone, menu, StoreNum);
+		        response.sendRedirect("http://localhost:8181/AteamFirstProject/getstoreinfoList");
 			
 		      
 	}
