@@ -32,7 +32,7 @@ public class ReviewrUpdate extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String reviewrName = request.getParameter("reviewrName");
+		String reviewName = request.getParameter("reviewName");
 		String content = request.getParameter("content");
 		String ruser = request.getParameter("ruser");
 		String score = request.getParameter("score");
@@ -42,13 +42,13 @@ public class ReviewrUpdate extends HttpServlet {
 		
 		
 		ReviewrDAO dao = ReviewrDAO.getInstance();
-		ReviewrVO review = dao.reviewupdate(ruser, reviewrName, content, scores);
+		ReviewrVO review = dao.reviewupdate(ruser, reviewName, content, scores);
 		
-		request.setAttribute("reviewr", review);
+		request.setAttribute("review", review);
 		// 포워딩해주세요.(/board/boardDetail.jsp로)
 
-		RequestDispatcher dp = request.getRequestDispatcher("/review/reviewrDetail.jsp");
-		dp.forward(request, response);
+		response.sendRedirect("http://localhost:8181/AteamFirstProject/getreviewrdetail?reviewNum=" + reviewNum);
+	
 
 	}
 

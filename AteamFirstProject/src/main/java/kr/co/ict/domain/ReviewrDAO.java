@@ -145,18 +145,18 @@ public class ReviewrDAO {
 			}
 		}return reviewr;
 }
-	public ReviewrVO reviewupdate(String ruser, String reviewrName ,String content ,int score) {
+	public ReviewrVO reviewupdate(String ruser, String reviewName ,String content ,int score) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ReviewrVO reviewr = new ReviewrVO();
 		try {
 			con = ds.getConnection();
 			
-			String sql = "UPDATE reviewr SET reviewName=?,reviewcontent=? score=? WHERE ruser=?";
+			String sql = "UPDATE reviewr SET reviewName=?,reviewcontent=?, score=? WHERE ruser=?";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(4, ruser);
-			pstmt.setString(1,reviewrName);
+			pstmt.setString(1,reviewName);
 			pstmt.setString(2,content);
 			pstmt.setInt(3, score);
 			pstmt.executeUpdate();
