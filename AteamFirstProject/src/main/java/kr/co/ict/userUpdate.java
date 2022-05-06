@@ -42,7 +42,6 @@ public class userUpdate extends HttpServlet {
 			
 			dao.userUpdateCheck(id, pw, nick, phone);
 			System.out.println("회원정보가 수정되었습니다.");
-			
 			ProjectUserVO user = dao.getUserInfo(id);
 			System.out.println("회원정보 변경으로 세션을 재발급합니다.");
 			HttpSession session = request.getSession();
