@@ -22,8 +22,9 @@
 		<input type="hidden" name="id" value="${sessionScope.user}">
 		<input type="submit" value="수정하기">
 	</form>
-	<form action="#" method="post">
-		<input type="submit" value="삭제">
+	<form action="http://localhost:8181/AteamFirstProject/firstProject/userDelete.jsp" method="post">
+		<input type="hidden" name="id" value="${sessionScope.user}">
+		<input type="submit" value="회원탈퇴">
 	</form>
 </body>
 </html>
