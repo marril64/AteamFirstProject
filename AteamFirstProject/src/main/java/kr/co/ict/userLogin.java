@@ -45,6 +45,7 @@ public class userLogin extends HttpServlet {
 			response.sendRedirect("http://localhost:8181/AteamFirstProject/firstProject/userInfo.jsp");
 		} else {
 			System.out.println("없는 아이디이거나 비밀번호가 잘못되었습니다.");
+			response.sendRedirect("http://localhost:8181/AteamFirstProject/userLoginForm");
 		}
 	}
 
