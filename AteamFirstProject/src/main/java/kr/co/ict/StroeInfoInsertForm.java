@@ -28,7 +28,7 @@ public class StroeInfoInsertForm extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dp = request.getRequestDispatcher("http://localhost:8181/storeinfo/storeinfoInsertForm.jsp");
+		RequestDispatcher dp = request.getRequestDispatcher("/storeinfo/storeinfoInsertForm.jsp");
 		dp.forward(request, response);          	
 	}
 

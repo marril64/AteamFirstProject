@@ -179,7 +179,7 @@ private DataSource ds = null;
 			}
 		}return storeinfo;
 	}
-	public void storeinfoInsert(String storeName, String storeContent, String storeAdd, String storeTime, int storePhone, String menu, int storeNum) {
+	public void storeinfoInsert(String storeName, String storeContent, String storeAdd, String storeTime, int storePhone, String menu) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		
@@ -187,7 +187,7 @@ private DataSource ds = null;
 		try {
 			con = ds.getConnection();
 			
-			String sql = "INSERT INTO storeinfo(storeName, StoreContent, storeAdd, storeTime, storePhone, menu,storeNum) VALUES(?,?,?,?,?,?,?);";
+			String sql = "INSERT INTO storeinfo(storeName, StoreContent, storeAdd, storeTime, storePhone, menu) VALUES(?,?,?,?,?,?);";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, storeName);
@@ -196,7 +196,6 @@ private DataSource ds = null;
 			pstmt.setString(4, storeTime);
 			pstmt.setInt(5, storePhone);
 			pstmt.setString(6, menu);
-			pstmt.setInt(7, storeNum);
 			
 			pstmt.executeUpdate();
 		} catch(Exception e) {
