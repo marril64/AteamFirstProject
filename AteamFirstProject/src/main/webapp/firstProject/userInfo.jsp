@@ -26,5 +26,8 @@
 		<input type="hidden" name="id" value="${sessionScope.user}">
 		<input type="submit" value="회원탈퇴">
 	</form>
+	<form action="http://localhost:8181/AteamFirstProject/firstProject/userLogout.jsp" method="post">
+		<input type="submit" value="로그아웃">
+	</form>
 </body>
 </html>
