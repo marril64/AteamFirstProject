@@ -21,6 +21,10 @@
 				<td>매장소개</td>
 			</tr>
 		</thead>
+		<form method="post" action="/storeinfo/search.jsp">
+			<input type="text" class="form-control pull-right" placeholder="Search" name="searchWord" />
+			<button class="btn btn-primary" type="submit" >검색</button>
+		</form>
 			<!-- JSTL c:forEach와 ${boardList}를 활용하면 됩니다.
 			전체 글 정보를 테이블 형식으로 보여주세요. getAllBoardList.jsp 참고해주세요.-->
 			<tbody>
@@ -38,6 +42,8 @@
 				</c:forEach>
 			</tbody>
 	</table>
-
+	<form action="http://localhost:8181/AteamFirstProject/storeinfo/storeinfoInsertForm.jsp" method="post">
+	<button class="btn btn-primary" type="submit" >글쓰기</button>
+	</form>
 </body>
 </html>

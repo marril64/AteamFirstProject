@@ -179,6 +179,7 @@ private DataSource ds = null;
 			}
 		}return storeinfo;
 	}
+	
 	public void storeinfoInsert(String storeName, String storeContent, String storeAdd, String storeTime, int storePhone, String menu) {
 		Connection con = null;
 		PreparedStatement pstmt = null;

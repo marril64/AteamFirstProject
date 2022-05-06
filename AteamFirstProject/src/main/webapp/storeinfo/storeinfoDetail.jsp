@@ -18,7 +18,7 @@ ${storeinfo }
 	전화번호 :<input type="text" name="storePhone" value="${storeinfo.storePhone }"/></br>
 	영업시간 :<input type="text" name="storeTime" value="${ storeinfo.storeTime}"/></br>
 	
-	
+	<c:if test="${sessionScope.user.id ne null}">
 	<hr/>
 	<a href="http://localhost:8181/AteamFirstProject/getstoreinfoList"><button>목록</a></button><br/>
 	<form action="http://localhost:8181/AteamFirstProject/storeinfodelete" method="post">
@@ -31,6 +31,6 @@ ${storeinfo }
 	<input type="submit" value="수정"/>
 	</form>
 	<a href="http://localhost:8181/AteamFirstProject/storeinfo/storeinfoInsertForm.jsp"><button>작성하기</a></button>	
-	
+	</c:if>
 </body>
 </html>
