@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	북마크 관련 임시페이지입니다.
+	${sessionScope.user.id}님의 북마크 페이지입니다.
 </body>
 </html>
