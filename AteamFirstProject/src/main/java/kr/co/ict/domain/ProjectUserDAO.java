@@ -265,4 +265,46 @@ public class ProjectUserDAO {
 		return user;
 	} // id로 회원정보 조회, 출력
 	
+	public List<StoreInfoVO> getUserBookmark (int userNum) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<StoreInfoVO> storeList = new ArrayList<>();
+		
+		try {
+			con = ds.getConnection();
+			String sql = "SELECT * FROM bookMark WHERE userNum = ?";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				StoreInfoVO store = new StoreInfoVO();
+				
+				store.setStoreNum(rs.getInt(1));
+				store.setStoreName(rs.getString(2));
+				store.setStoreTime(rs.getString(3));
+				store.setStoreAdd(rs.getString(4));
+				store.setStorePhone(rs.getInt(5));
+				store.setMenu(rs.getString(6));
+				store.setStoreContent(rs.getString(7));
+
+				
+				storeList.add(store);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+				pstmt.close();
+				rs.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return storeList;
+	}
+	
 }
