@@ -270,16 +270,28 @@ public class ProjectUserDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<StoreInfoVO> storeList = new ArrayList<>();
+		List<Integer> arr = new ArrayList<>();
 		
 		try {
 			con = ds.getConnection();
 			String sql = "SELECT * FROM bookMark WHERE userNum = ?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, userNum);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				arr.add(rs.getInt(2));
+			}
+			
+			for (int i = 0; i < arr.size(); i++) {
+			sql = "SELECT * FROM storeinfo WHERE storeNum = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, arr.get(i));
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
 				StoreInfoVO store = new StoreInfoVO();
-				
+			
 				store.setStoreNum(rs.getInt(1));
 				store.setStoreName(rs.getString(2));
 				store.setStoreTime(rs.getString(3));
@@ -287,9 +299,9 @@ public class ProjectUserDAO {
 				store.setStorePhone(rs.getInt(5));
 				store.setMenu(rs.getString(6));
 				store.setStoreContent(rs.getString(7));
-
-				
+					
 				storeList.add(store);
+			}
 			}
 			
 		} catch (Exception e) {
@@ -305,6 +317,6 @@ public class ProjectUserDAO {
 		}
 		
 		return storeList;
-	}
+	} // 아직 테스트중
 	
 }
