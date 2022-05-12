@@ -42,6 +42,7 @@ public class userBookmarkForm extends HttpServlet {
 		List<StoreInfoVO> store = dao.getUserBookmark(userNum);
 		
 		System.out.println(store);
+		request.setAttribute("store", store);
 		
 		
 		

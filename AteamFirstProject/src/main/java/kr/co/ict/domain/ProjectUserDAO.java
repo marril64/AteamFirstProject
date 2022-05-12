@@ -284,24 +284,25 @@ public class ProjectUserDAO {
 			}
 			
 			for (int i = 0; i < arr.size(); i++) {
-			sql = "SELECT * FROM storeinfo WHERE storeNum = ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, arr.get(i));
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				StoreInfoVO store = new StoreInfoVO();
-			
-				store.setStoreNum(rs.getInt(1));
-				store.setStoreName(rs.getString(2));
-				store.setStoreTime(rs.getString(3));
-				store.setStoreAdd(rs.getString(4));
-				store.setStorePhone(rs.getInt(5));
-				store.setMenu(rs.getString(6));
-				store.setStoreContent(rs.getString(7));
-					
-				storeList.add(store);
-			}
+				sql = "SELECT * FROM storeinfo WHERE storeNum = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, arr.get(i));
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					StoreInfoVO store = new StoreInfoVO();
+				
+					store.setStoreNum(rs.getInt(1));
+					store.setStoreName(rs.getString(2));
+					store.setStoreTime(rs.getString(3));
+					store.setStoreAdd(rs.getString(4));
+					store.setStorePhone(rs.getInt(5));
+					store.setMenu(rs.getString(6));
+					store.setStoreContent(rs.getString(7));
+						
+					storeList.add(store);
+				}
+				
 			}
 			
 		} catch (Exception e) {
