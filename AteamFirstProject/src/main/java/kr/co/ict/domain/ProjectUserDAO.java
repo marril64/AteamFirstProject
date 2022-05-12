@@ -302,9 +302,7 @@ public class ProjectUserDAO {
 						
 					storeList.add(store);
 				}
-				
 			}
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -318,6 +316,50 @@ public class ProjectUserDAO {
 		}
 		
 		return storeList;
-	} // 아직 테스트중
+	} // 유저 고유번호로 즐겨찾기 조회하는 기능
+	
+	public void bookmarkDelete(int userNum, int storeNum) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "DELETE FROM bookMark WHERE userNum = ? AND storeNum = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, userNum);
+			pstmt.setInt(2, storeNum);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+				pstmt.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	} // 유저 고유번호와 가게 고유번호로 즐겨찾기 삭제하는 기능
+	
+	public void bookmarkUpdate(int userNum, int storeNum) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "INSERT INTO bookMark VALUES (null, ?, ?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, storeNum);
+			pstmt.setInt(1, userNum);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+				pstmt.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	} // 유저 고유번호와 가게 고유번호로 즐겨찾기 추가하는 기능
 	
 }
