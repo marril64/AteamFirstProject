@@ -323,6 +323,7 @@ public class ProjectUserDAO {
 		PreparedStatement pstmt = null;
 		
 		try {
+			con = ds.getConnection();
 			String sql = "DELETE FROM bookMark WHERE userNum = ? AND storeNum = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, userNum);
@@ -345,6 +346,7 @@ public class ProjectUserDAO {
 		PreparedStatement pstmt = null;
 		
 		try {
+			con = ds.getConnection();
 			String sql = "INSERT INTO bookMark VALUES (null, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, storeNum);

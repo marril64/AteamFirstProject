@@ -21,6 +21,7 @@
 				<th>가게주소</th>
 				<th>전화번호</th>
 				<th>메뉴</th>
+				<th>즐겨찾기 삭제</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -32,6 +33,12 @@
 					<td>${store.storeAdd}</td>
 					<td>${store.storePhone}</td>
 					<td>${store.menu}</td>
+					<td>
+						<form action="http://localhost:8181/AteamFirstProject/firstProject/userBookmarkDelete.jsp" method="post">
+							<input type="hidden" name="storeNum" value="${store.storeNum}">
+							<input type="submit" value="삭제">
+						</form>
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>

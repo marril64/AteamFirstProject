@@ -44,8 +44,6 @@ public class userBookmarkForm extends HttpServlet {
 		System.out.println(store);
 		request.setAttribute("store", store);
 		
-		
-		
 		RequestDispatcher dp = request.getRequestDispatcher("firstProject/userBookmark.jsp");
 		dp.forward(request, response);
 	}
