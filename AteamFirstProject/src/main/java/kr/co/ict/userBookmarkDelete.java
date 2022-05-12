@@ -1,6 +1,7 @@
 package kr.co.ict;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.co.ict.domain.ProjectUserDAO;
+import kr.co.ict.domain.StoreInfoVO;
 
 /**
  * Servlet implementation class userBookmarkDelete
@@ -32,21 +34,25 @@ public class userBookmarkDelete extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		ProjectUserDAO dao = ProjectUserDAO.getInstance();
 
 		String yes = request.getParameter("yes");
 		String no = request.getParameter("no");
+		int userNum = Integer.parseInt(request.getParameter("userNum"));
 
 		if (yes != null) {
-			ProjectUserDAO dao = ProjectUserDAO.getInstance();
-			
-			int userNum = Integer.parseInt(request.getParameter("userNum"));
 			int storeNum = Integer.parseInt(request.getParameter("storeNum"));
 			
 			dao.bookmarkDelete(userNum, storeNum);
-			
-			response.sendRedirect("");
+			List<StoreInfoVO> store = dao.getUserBookmark(userNum);
+			request.setAttribute("store", store);
+			RequestDispatcher dp = request.getRequestDispatcher("firstProject/userBookmark.jsp");
+			dp.forward(request, response);
 		} else if (no != null) {
-			response.sendRedirect("");
+			List<StoreInfoVO> store = dao.getUserBookmark(userNum);
+			request.setAttribute("store", store);
+			RequestDispatcher dp = request.getRequestDispatcher("firstProject/userBookmark.jsp");
+			dp.forward(request, response);
 		}
 	}
 
