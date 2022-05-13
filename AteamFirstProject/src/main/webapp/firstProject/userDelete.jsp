@@ -17,5 +17,8 @@
 		pw : <input type="password" name="pw">
 		<input type="submit" value="탈퇴하기">
 	</form>
+	<form action="http://localhost:8181/AteamFirstProject/firstProject/userInfo.jsp" method="post">
+		<input type="submit" value="돌아가기">
+	</form>
 </body>
 </html>

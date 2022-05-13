@@ -13,11 +13,14 @@
 <body>
 	<form action="http://localhost:8181/AteamFirstProject/userPasswordCheckForm" method="post">
 		<h2>회원정보 변경</h2>
-		id : ${sessionScope.user.id}<br/>
+		<h4>${sessionScope.user.id}님의 회원정보를 변경합니다.</h4>
 		변경하실 pw : <input type="password" name="newPw"><br/>
 		변경하실 nick : <input type="text" name="nick" value="${sessionScope.user.nick}"><br/>
 		변경하실 phone : <input type="tel" name="phone" value="${sessionScope.user.phone}"><br/>
 		<input type="submit" value="바꾸기">
+	</form>
+	<form action="http://localhost:8181/AteamFirstProject/firstProject/userInfo.jsp" method="post">
+		<input type="submit" value="돌아가기">
 	</form>
 </body>
 </html>
