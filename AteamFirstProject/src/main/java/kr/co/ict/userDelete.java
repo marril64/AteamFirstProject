@@ -43,7 +43,8 @@ public class userDelete extends HttpServlet {
 			System.out.println("세션을 파기합니다.");
 			response.sendRedirect("http://localhost:8181/AteamFirstProject/userLoginForm");
 		} else {
-			System.out.println("id와 pw를 다시 확인해주십시오.");
+			System.out.println("아이디와 비밀번호를 다시 입력해 주십시오.");
+			System.out.println("http://localhost:8181/AteamFirstProject/firstProject/userInfo.jsp");
 		}
 	}
 

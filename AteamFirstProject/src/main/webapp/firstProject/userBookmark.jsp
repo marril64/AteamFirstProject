@@ -43,5 +43,8 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<form action="http://localhost:8181/AteamFirstProject/firstProject/userInfo.jsp" method="post">
+		<input type="submit" value="돌아가기">
+	</form>
 </body>
 </html>
