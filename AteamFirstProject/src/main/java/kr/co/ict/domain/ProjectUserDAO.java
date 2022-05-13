@@ -344,20 +344,33 @@ public class ProjectUserDAO {
 	public void bookmarkUpdate(int userNum, int storeNum) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		
 		try {
 			con = ds.getConnection();
-			String sql = "INSERT INTO bookMark VALUES (null, ?, ?)";
+			String sql = "SELECT * FROM bookMark WHERE userNum = ? AND storeNum = ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, storeNum);
 			pstmt.setInt(1, userNum);
-			pstmt.executeUpdate();
+			pstmt.setInt(2, storeNum);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				System.out.println("이미 즐겨찾기에 추가된 가게입니다. 사랑해주셔서 감사합니다.");
+			} else {
+				sql = "INSERT INTO bookMark VALUES (null, ?, ?)";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, storeNum);
+				pstmt.setInt(2, userNum);
+				pstmt.executeUpdate();
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
 				con.close();
 				pstmt.close();
+				rs.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
