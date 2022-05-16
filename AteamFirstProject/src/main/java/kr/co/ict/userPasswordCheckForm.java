@@ -27,7 +27,8 @@ public class userPasswordCheckForm extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		RequestDispatcher dp = request.getRequestDispatcher("firstProject/userPasswordCheck.jsp");
 		dp.forward(request, response);
 	}

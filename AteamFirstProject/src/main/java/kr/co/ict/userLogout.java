@@ -37,7 +37,7 @@ public class userLogout extends HttpServlet {
 			session.invalidate();
 			response.sendRedirect("http://localhost:8181/AteamFirstProject/userLoginForm");
 		} else if (no != null) {
-			response.sendRedirect("http://localhost:8181/AteamFirstProject/firstProject/userInfo.jsp");
+			response.sendRedirect("http://localhost:8181/AteamFirstProject/userLoginForm");
 		}
 	}
 
