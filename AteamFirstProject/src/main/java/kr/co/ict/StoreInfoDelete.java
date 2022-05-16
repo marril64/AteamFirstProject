@@ -30,13 +30,13 @@ public class StoreInfoDelete extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String storeNum = request.getParameter("storeNum");
 		//System.out.println(storeNum);
 		// 정수로 바꿔줘야함.
-		int storenum = Integer.parseInt(storeNum);
-		StoreInfoDAO dao = StoreInfoDAO.getInstance();
-		dao.storeinfoDelete(storenum);
+		//int storenum = Integer.parseInt(storeNum);
+		//StoreInfoDAO dao = StoreInfoDAO.getInstance();
+		//dao.storeinfoDelete(storenum);
 		response.sendRedirect("http://localhost:8181/AteamFirstProject/getstoreinfoList");
 	}
 

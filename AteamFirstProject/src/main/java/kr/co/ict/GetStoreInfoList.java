@@ -41,7 +41,7 @@ public class GetStoreInfoList extends HttpServlet {
 		// 포워딩 위치로 얻어온 데이터 보내기.(ServletCustom을 참고하세요.)
 				request.setAttribute("storeinfoList", storeinfoList);
 				// 포워딩으로 getBoardList.jsp와 연결해보겠습니다.
-				RequestDispatcher dp = request.getRequestDispatcher("/storeinfo/getStroreInfoList.jsp");
+				RequestDispatcher dp = request.getRequestDispatcher("/storeinfo/getStoreInfoList.jsp");
 				dp.forward(request, response);
 	}
 	

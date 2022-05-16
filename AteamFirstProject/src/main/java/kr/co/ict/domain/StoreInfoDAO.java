@@ -1,6 +1,6 @@
 package kr.co.ict.domain;
 
-import java.awt.Menu;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
