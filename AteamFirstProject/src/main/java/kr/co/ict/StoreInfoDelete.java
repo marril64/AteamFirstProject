@@ -32,11 +32,11 @@ public class StoreInfoDelete extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String storeNum = request.getParameter("storeNum");
-		System.out.println(storeNum);
+		//System.out.println(storeNum);
 		// 정수로 바꿔줘야함.
 		int storenum = Integer.parseInt(storeNum);
 		StoreInfoDAO dao = StoreInfoDAO.getInstance();
-		StoreInfoVO board = dao.storeinfoDelete(storenum);
+		dao.storeinfoDelete(storenum);
 		response.sendRedirect("http://localhost:8181/AteamFirstProject/getstoreinfoList");
 	}
 

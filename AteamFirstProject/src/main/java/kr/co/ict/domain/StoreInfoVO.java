@@ -12,6 +12,9 @@ public class StoreInfoVO {
 		private int storePhone;
 		private String menu;
 		private String storeContent;
+		private int storeHit;
+		
+		
 		public int getStoreNum() {
 			return storeNum;
 		}
@@ -54,13 +57,17 @@ public class StoreInfoVO {
 		public void setStoreContent(String storeContent) {
 			this.storeContent = storeContent;
 		}
+		public int getStoreHit() {
+			return storeHit;
+		}
+		public void setStoreHit(int storeHit) {
+			this.storeHit = storeHit;
+		}
 		@Override
 		public String toString() {
 			return "StoreInfoVO [storeNum=" + storeNum + ", storeName=" + storeName + ", storeTime=" + storeTime
 					+ ", storeAdd=" + storeAdd + ", storePhone=" + storePhone + ", menu=" + menu + ", storeContent="
-					+ storeContent + "]";
+					+ storeContent + ", storeHit=" + storeHit + "]";
 		}
-}
 		
-
-
+}

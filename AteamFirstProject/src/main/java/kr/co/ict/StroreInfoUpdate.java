@@ -34,6 +34,8 @@ public class StroreInfoUpdate extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		String strStoreNum = request.getParameter("storenum");
+		int storeNum = Integer.parseInt(strStoreNum);
 		
 		String storeName =request.getParameter("storeName");
 		String storeContent =request.getParameter("storeContent");
@@ -41,16 +43,13 @@ public class StroreInfoUpdate extends HttpServlet {
 		String storeAdd = request.getParameter("storeAdd");
 		int storePhone = Integer.parseInt(request.getParameter("storePhone"));
 		String menu = request.getParameter("menu");
-		int StoreNum = Integer.parseInt(request.getParameter("storeNum"));			
+		int StoreNum = Integer.parseInt(request.getParameter("storeNum"));	
+		int storeHit = Integer.parseInt(request.getParameter("storeHit"));
 		
         StoreInfoDAO dao = StoreInfoDAO.getInstance();
-        StoreInfoVO storeinfo = dao.storeinfoupdate(storeName, storeContent, storeTime, storeAdd, storePhone, menu, StoreNum);
+        StoreInfoVO storeinfo = dao.storeinfoupdate(storeName, storeContent, storeTime, storeAdd, storePhone, menu, StoreNum, storeHit);
 		
-		// request.setAttribute("storeinfo", storeinfo);
-		// 포워딩해주세요.(/board/boardDetail.jsp로)
 
-		// RequestDispatcher dp = request.getRequestDispatcher("/storeinfo/storeinfoDetail.jsp");
-		// dp.forward(request, response);
         response.sendRedirect("http://localhost:8181/AteamFirstProject/getStoreInfoDetail?storeNum=" + StoreNum);
 	}
 

@@ -34,9 +34,9 @@ public class GetStoreInfoDetail extends HttpServlet {
 	 */
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String strBoardNum = request.getParameter("storeNum");
+		String strStoreNum = request.getParameter("storeNum");
 		// 정수로 바꿔줘야함.
-		int storeNum = Integer.parseInt(strBoardNum);
+		int storeNum = Integer.parseInt(strStoreNum);
 		// 바뀐 글 번호가 잘 나오는지 체크
 		System.out.println("조회예정인 글번호 : " + storeNum);
 		// DAO를 생성하세요.
@@ -49,7 +49,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		request.setAttribute("storeinfo", storeinfo);
 		// 포워딩해주세요.(/board/boardDetail.jsp로)
 		RequestDispatcher dp = request.getRequestDispatcher("/storeinfo/storeinfoDetail.jsp");
-		dp.forward(request, response);
+		dp.forward(request, response);   
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

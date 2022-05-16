@@ -32,14 +32,22 @@ public class StoreInfoInsert extends HttpServlet {
 				request.setCharacterEncoding("utf-8");
 
 				String storeName =request.getParameter("storeName");
+				//System.out.println(storeName);
 				String storeContent =request.getParameter("storeContent");
+				//System.out.println(storeContent);
 				String storeTime =request.getParameter("storeTime");
+				//System.out.println(storeTime);
 				String storeAdd = request.getParameter("storeAdd");
 				int storePhone = Integer.parseInt(request.getParameter("storePhone"));
+				//System.out.println(storePhone);
 				String menu = request.getParameter("menu");	
+				int storeHit = Integer.parseInt(request.getParameter("storeHit"));
+				//System.out.println(storeHit);
+				
+				System.out.println(storeName + ", " + storeContent + ", " + storeTime + ", " + storeAdd + ", " + storePhone + ", " +  menu  + ", " + storeHit);
 				
 				StoreInfoDAO dao = StoreInfoDAO.getInstance();
-				dao.storeinfoInsert(storeName, storeContent, storeTime, storeAdd, storePhone, menu);
+				dao.storeinfoInsert(storeName, storeContent, storeTime, storeAdd, storePhone, menu, storeHit);
 		        response.sendRedirect("http://localhost:8181/AteamFirstProject/getstoreinfoList");
 			
 		      

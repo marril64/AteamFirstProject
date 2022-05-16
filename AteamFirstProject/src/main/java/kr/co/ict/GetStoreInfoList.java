@@ -35,7 +35,7 @@ public class GetStoreInfoList extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		StoreInfoDAO dao = StoreInfoDAO.getInstance();
-		List<StoreInfoVO> storeinfoList = dao.getstoreinfoList();
+		List<StoreInfoVO> storeinfoList = dao.getstoreinfoList(1);
 		System.out.println("데이터를 받아오는지 확인" + storeinfoList);
 		
 		// 포워딩 위치로 얻어온 데이터 보내기.(ServletCustom을 참고하세요.)
