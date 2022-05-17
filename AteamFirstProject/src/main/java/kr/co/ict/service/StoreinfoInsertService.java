@@ -15,17 +15,21 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	request.setCharacterEncoding("utf-8");
 	StoreInfoDAO dao = StoreInfoDAO.getInstance();
 	
-	String storeNum = request.getParameter("storeNum");
 	String storeName =request.getParameter("storeName");
 	String storeContent =request.getParameter("storeContent");
-	String storeTime =request.getParameter("storeTime");
+	String storeStartTime = request.getParameter("storeStartTime");
+	String storeEndTime = request.getParameter("storeEndTime");
+	
+	System.out.println(storeStartTime + " ~ " + storeEndTime);
+	String totalTime = (storeStartTime + " ~ " + storeEndTime);
+	
 	String storeAdd = request.getParameter("storeAdd");
-	int storePhone = Integer.parseInt(request.getParameter("storePhone"));
+	String storePhone = request.getParameter("storePhone");
 	String menu = request.getParameter("menu");	
-	int storeHit = Integer.parseInt(request.getParameter("storeHit"));
+	// int storeHit = Integer.parseInt(request.getParameter("storeHit"));
 	
 	
-	dao.storeinfoInsert(storeName, storeContent, storeTime, storeAdd, storePhone, menu, storeHit);
+	dao.storeinfoInsert(storeName, storeContent, totalTime, storeAdd, storePhone, menu);
 		
 
 	}

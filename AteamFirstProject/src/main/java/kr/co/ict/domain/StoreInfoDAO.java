@@ -89,7 +89,7 @@ private DataSource ds = null;
 		return storeinfoList;
 	}// getreviewrList() 끝나는 지점.
 
-public void storeinfoInsert(int storeNum, String storeName,String storeContent, String storeAdd, String storeTime, int storePhone, String menu, int storeHit) {
+public void storeinfoInsert(String storeName,String storeContent, String storeAdd, String storeTime, String storePhone, String menu) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -97,17 +97,15 @@ public void storeinfoInsert(int storeNum, String storeName,String storeContent, 
 		try {
 			con = ds.getConnection();
 			
-			String sql = "INSERT INTO storeinfo (storeName,storeContent,storeAdd, storeTime, storePhone,storeNum, menu, storeHit ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO storeinfo (storeName,storeContent,storeAdd, storeTime, storePhone,storeNum, menu, storeHit ) VALUES (?, ?, ?, ?, ?, null, ?, null)";
 			pstmt = con.prepareStatement(sql);
 			// ? 채우기
 			pstmt.setString(1, storeName);
 			pstmt.setString(2, storeContent);
 			pstmt.setString(3, storeAdd);
 			pstmt.setString(4, storeTime);
-			pstmt.setInt(5, storePhone);
-			pstmt.setInt(6, storeNum);	
-			pstmt.setString(7, menu);	
-			pstmt.setInt(8, storeHit);	
+			pstmt.setString(5, storePhone);	
+			pstmt.setString(6, menu);		
 			
 			pstmt.executeUpdate();
 		} catch(Exception e) {
