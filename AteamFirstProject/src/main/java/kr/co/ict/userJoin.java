@@ -33,12 +33,9 @@ public class userJoin extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		String id = request.getParameter("id");
-		String idcheck = request.getParameter("idcheck");
 		String pw = request.getParameter("pw");
-		String pwcheck = request.getParameter("pwcheck");
 		String nick = request.getParameter("nick");
 		int phone = Integer.parseInt(request.getParameter("phone"));
-		int phonecheck = Integer.parseInt(request.getParameter("phonecheck"));
 		
 		ProjectUserDAO dao = ProjectUserDAO.getInstance();
 		

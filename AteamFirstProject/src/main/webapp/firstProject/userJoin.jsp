@@ -12,14 +12,10 @@
 </head>
 <body>
 	<form action="http://localhost:8181/AteamFirstProject/userJoin" method="post">
-		id : <input type="text" name="id">
-		<input type="button" name="idcheck" value="id 중복 확인"><br/>
+		id : <input type="text" name="id"><br/>
 		pw : <input type="password" name="pw"><br/>
-		pw확인 : <input type="password" name="pwcheck"><br/>
-		nick : <input type="text" name="nick">
-		<input type="button" name="nickcheck" value="nick 중복 확인"><br/>
-		phone : <input type="tel" name="phone">
-		<input type="button" name="phonecheck" value="phone 중복 확인"><br/>
+		nick : <input type="text" name="nick"><br/>
+		phone : <input type="tel" name="phone"><br/>
 		<input type="submit" value="회원가입">
 	</form>
 </body>
