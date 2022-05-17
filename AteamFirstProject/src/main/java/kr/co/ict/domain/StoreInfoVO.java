@@ -9,7 +9,7 @@ public class StoreInfoVO {
 		private String storeName;
 		private String storeTime;
 		private String storeAdd;
-		private int storePhone;
+		private String storePhone;
 		private String menu;
 		private String storeContent;
 		private int storeHit;
@@ -39,10 +39,10 @@ public class StoreInfoVO {
 		public void setStoreAdd(String storeAdd) {
 			this.storeAdd = storeAdd;
 		}
-		public int getStorePhone() {
+		public String getStorePhone() {
 			return storePhone;
 		}
-		public void setStorePhone(int storePhone) {
+		public void setStorePhone(String storePhone) {
 			this.storePhone = storePhone;
 		}
 		public String getMenu() {

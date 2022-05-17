@@ -64,7 +64,7 @@ private DataSource ds = null;
 				storeinfo.setMenu(rs.getString(6));
 				storeinfo.setStoreContent(rs.getString(7));
 				storeinfo.setStoreAdd(rs.getString(4));
-				storeinfo.setStorePhone(rs.getInt(5));
+				storeinfo.setStorePhone(rs.getString(5));
 				storeinfo.setStoreTime(rs.getString(3));
 				storeinfo.setStoreHit(rs.getInt(8));
 				//다시 한번 해보시겠어요? 축하드립니다!
@@ -144,7 +144,7 @@ public void storeinfoInsert(String storeName,String storeContent, String storeAd
 				storeinfo.setStoreName(rs.getString(2));
 				storeinfo.setStoreTime(rs.getString(3));
 				storeinfo.setStoreAdd(rs.getString(4));
-				storeinfo.setStorePhone(rs.getInt(5));
+				storeinfo.setStorePhone(rs.getString(5));
 				storeinfo.setMenu(rs.getString(6));
 				storeinfo.setStoreContent(rs.getString(7));
 				storeinfo.setStoreHit(rs.getInt(8));

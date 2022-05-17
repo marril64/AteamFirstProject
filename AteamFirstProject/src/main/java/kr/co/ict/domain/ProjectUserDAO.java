@@ -296,7 +296,7 @@ public class ProjectUserDAO {
 					store.setStoreName(rs.getString(2));
 					store.setStoreTime(rs.getString(3));
 					store.setStoreAdd(rs.getString(4));
-					store.setStorePhone(rs.getInt(5));
+					store.setStorePhone(rs.getString(5));
 					store.setMenu(rs.getString(6));
 					store.setStoreContent(rs.getString(7));
 						
