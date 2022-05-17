@@ -41,7 +41,7 @@ public class StroreInfoUpdate extends HttpServlet {
 		String storeContent =request.getParameter("storeContent");
 		String storeTime =request.getParameter("storeTime");
 		String storeAdd = request.getParameter("storeAdd");
-		int storePhone = Integer.parseInt(request.getParameter("storePhone"));
+		String storePhone = request.getParameter("storePhone");
 		String menu = request.getParameter("menu");
 		int StoreNum = Integer.parseInt(request.getParameter("storeNum"));	
 		int storeHit = Integer.parseInt(request.getParameter("storeHit"));

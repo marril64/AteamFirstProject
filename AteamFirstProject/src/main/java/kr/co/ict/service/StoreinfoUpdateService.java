@@ -23,7 +23,7 @@ public class StoreinfoUpdateService implements IStoreinfoService{
 		String storeContent =request.getParameter("storeContent");
 		String storeTime =request.getParameter("storeTime");
 		String storeAdd = request.getParameter("storeAdd");
-		int storePhone = Integer.parseInt(request.getParameter("storePhone"));
+		String storePhone = request.getParameter("storePhone");
 		String menu = request.getParameter("menu");	
 		int storeHit = Integer.parseInt(request.getParameter("storeHit"));
 		

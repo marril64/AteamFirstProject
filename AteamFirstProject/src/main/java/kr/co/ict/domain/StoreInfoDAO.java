@@ -183,10 +183,10 @@ public void storeinfoInsert(String storeName,String storeContent, String storeAd
 				pstmt.close();
 			} catch(Exception e) {
 				e.printStackTrace();
-			}return storeinfo;
-		}
+			}
+		} return storeinfo;
 	}
-	public StoreInfoVO storeinfoupdate(String storeName, String storeContent, String storeAdd, String storeTime, int storePhone, String menu, int storeNum, int storeHit ) {
+	public StoreInfoVO storeinfoupdate(String storeName, String storeContent, String storeAdd, String storeTime, String storePhone, String menu, int storeNum, int storeHit ) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		StoreInfoVO storeinfo = new StoreInfoVO();
@@ -200,7 +200,7 @@ public void storeinfoInsert(String storeName,String storeContent, String storeAd
 			pstmt.setString(2, storeContent);
 			pstmt.setString(3, storeAdd);
 			pstmt.setString(4, storeTime);
-			pstmt.setInt(5, storePhone);
+			pstmt.setString(5, storePhone);
 			pstmt.setInt(6, storeNum);			
 			pstmt.setInt(7, storeHit);			
 						
@@ -217,7 +217,7 @@ public void storeinfoInsert(String storeName,String storeContent, String storeAd
 		}return storeinfo;
 	}
 	
-	public void storeinfoInsert(String storeName, String storeContent, String storeAdd, String storeTime, int storePhone, String menu, int storeHit) {
+	public void storeinfoInsert(String storeName, String storeContent, String storeAdd, String storeTime, String storePhone, String menu, int storeHit) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		
@@ -232,7 +232,7 @@ public void storeinfoInsert(String storeName,String storeContent, String storeAd
 			pstmt.setString(2, storeContent);
 			pstmt.setString(3, storeAdd);
 			pstmt.setString(4, storeTime);
-			pstmt.setInt(5, storePhone);
+			pstmt.setString(5, storePhone);
 			pstmt.setString(6, menu);
 			pstmt.setInt(7, storeHit);
 			
@@ -275,7 +275,7 @@ public void storeinfoInsert(String storeName,String storeContent, String storeAd
 		}
 		
 		// update로직을 한 번 작성해보겠습니다.
-		public void StroreInfoUpdate(int storedNum, String storeName, String StoreContent, String storeAdd, String storeTime, int storePhone, String menu, int storeHit ) {
+		public void StroreInfoUpdate(int storedNum, String storeName, String StoreContent, String storeAdd, String storeTime, String storePhone, String menu, int storeHit ) {
 			Connection con = null;  
 			PreparedStatement pstmt = null;
 			
@@ -289,7 +289,7 @@ public void storeinfoInsert(String storeName,String storeContent, String storeAd
 				pstmt.setString(3, StoreContent);
 				pstmt.setString(4, storeAdd);
 				pstmt.setString(5, storeTime);
-				pstmt.setInt(6, storePhone);
+				pstmt.setString(6, storePhone);
 				pstmt.setString(7, menu);
 				pstmt.setInt(8, storeHit);
 				

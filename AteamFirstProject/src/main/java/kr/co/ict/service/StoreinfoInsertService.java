@@ -29,7 +29,7 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	// int storeHit = Integer.parseInt(request.getParameter("storeHit"));
 	
 	
-	dao.storeinfoInsert(storeName, storeContent, totalTime, storeAdd, storePhone, menu);
+	dao.storeinfoInsert(storeName, storeContent, storeAdd, totalTime , storePhone, menu);
 		
 
 	}
