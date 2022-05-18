@@ -41,14 +41,10 @@ public class userJoin extends HttpServlet {
 		
 		if (dao.userJoinCheck(id, pw, phone, nick)) {
 			System.out.println("가입되었습니다.");
-			ProjectUserVO user = dao.getUserInfo(id);
-			System.out.println("로그인 되었습니다. 세션을 발급합니다.");
-			HttpSession session = request.getSession();
-			session.setAttribute("user", user);
-			response.sendRedirect("http://localhost:8181/AteamFirstProject/firstProject/userInfo.jsp");
+			response.sendRedirect("http://localhost:8181/AteamFirstProject/firstProject/userJoinSuccess.jsp");
 		} else {
 			System.out.println("아이디나 닉네임이 중복되었습니다.");
-			response.sendRedirect("http://localhost:8181/AteamFirstProject/firstProject/userJoin.jsp");
+			response.sendRedirect("http://localhost:8181/AteamFirstProject/firstProject/userJoinFail.jsp");
 		}
 		
 	}

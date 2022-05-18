@@ -18,5 +18,8 @@
 		phone : <input type="tel" name="phone"><br/>
 		<input type="submit" value="회원가입">
 	</form>
+	<form action="http://localhost:8181/AteamFirstProject/firstProject/userLogin.jsp" method="get">
+		<input type="submit" value="돌아가기">
+	</form>
 </body>
 </html>
