@@ -37,7 +37,7 @@ public class StoreInfoDelete extends HttpServlet {
 		//int storenum = Integer.parseInt(storeNum);
 		//StoreInfoDAO dao = StoreInfoDAO.getInstance();
 		//dao.storeinfoDelete(storenum);
-		response.sendRedirect("http://localhost:8181/AteamFirstProject/getstoreinfoList");
+		response.sendRedirect("http://localhost:8181/AteamFirstProject/getstoreinfoList.do");
 	}
 
 }

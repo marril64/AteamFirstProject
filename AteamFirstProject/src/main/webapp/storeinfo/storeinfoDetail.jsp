@@ -20,13 +20,13 @@ ${storeinfo }
 	
 	
 	<hr/>
-	<a href="http://localhost:8181/AteamFirstProject/getstoreinfoList.do"><button>목록</a></button><br/>
+	<a href="http://localhost:8181/AteamFirstProject/getStoreInfoList.do"><button>목록</a></button><br/>
 	<c:if test="${sessionScope.user.id ne null}">
-	<form action="http://localhost:8181/AteamFirstProject/storeinfodelete.do" method="post">
 	
+	<form action="http://localhost:8181/AteamFirstProject/storeinfodelete.do" method="post">	
 	<input type="hidden" name="storeNum" value="${storeinfo.storeNum }">
-	<input type="hidden" name="id" value="${reuser.userNum}">
-	
+	<input type="hidden" name="id" value="${sessionScope.user.id}">	
+	<input type="hidden" name="userNum" value="${sessionScope.user.userNum}">	
 	<input type="submit" value="삭제"/>
 	</form>
 	

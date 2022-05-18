@@ -48,7 +48,7 @@ public class StoreInfoInsert extends HttpServlet {
 				
 				StoreInfoDAO dao = StoreInfoDAO.getInstance();
 				dao.storeinfoInsert(storeName, storeContent, storeTime, storeAdd, storePhone, menu);
-		        response.sendRedirect("http://localhost:8181/AteamFirstProject/getstoreinfoList");
+		        response.sendRedirect("http://localhost:8181/AteamFirstProject/getstoreinfoList.do");
 			
 		      
 	}
