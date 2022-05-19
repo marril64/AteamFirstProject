@@ -23,6 +23,9 @@
 	
 	<input type="submit" value="글쓰기"/>
 	<input type="reset" value="초기화"/>
+	<form action="http://localhost:8181/AteamFirstProject/getStoreInfoList.do" method="post">
+		<input type="submit" value="목록으로 돌아가기">
+	</form>
 	
 </form>
 

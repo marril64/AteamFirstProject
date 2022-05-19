@@ -12,13 +12,13 @@ public class StoreinfoUpdateService implements IStoreinfoService{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
 		StoreInfoDAO dao = StoreInfoDAO.getInstance();
 		String strStoreNum = request.getParameter("storeNum");		
 		int storenum = Integer.parseInt(strStoreNum);
 		String id = request.getParameter("id");
 
-		String storeNum = request.getParameter("storeNum");
+		int storeNum = Integer.parseInt(request.getParameter("storeNum"));
 		String storeName =request.getParameter("storeName");
 		String storeContent =request.getParameter("storeContent");
 		String storeTime =request.getParameter("storeTime");

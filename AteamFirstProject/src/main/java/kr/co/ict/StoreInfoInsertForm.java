@@ -13,13 +13,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class StroeInfoInsertForm
  */
 @WebServlet("/storeinfoinsertform")
-public class StroeInfoInsertForm extends HttpServlet {
+public class StoreInfoInsertForm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StroeInfoInsertForm() {
+    public StoreInfoInsertForm() {
         super();
         // TODO Auto-generated constructor stub
     }

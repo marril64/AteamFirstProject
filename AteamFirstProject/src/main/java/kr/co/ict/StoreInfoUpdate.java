@@ -18,13 +18,13 @@ import kr.co.ict.domain.StoreInfoVO;
  * Servlet implementation class StroreInfoUpdate
  */
 @WebServlet("/StroreInfoUpdate")
-public class StroreInfoUpdate extends HttpServlet {
+public class StoreInfoUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StroreInfoUpdate() {
+    public StoreInfoUpdate() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,14 +43,14 @@ public class StroreInfoUpdate extends HttpServlet {
 		String storeAdd = request.getParameter("storeAdd");
 		String storePhone = request.getParameter("storePhone");
 		String menu = request.getParameter("menu");
-		int StoreNum = Integer.parseInt(request.getParameter("storeNum"));	
+		//int StoreNum = Integer.parseInt(request.getParameter("storeNum"));	
 		int storeHit = Integer.parseInt(request.getParameter("storeHit"));
 		
         StoreInfoDAO dao = StoreInfoDAO.getInstance();
-        StoreInfoVO storeinfo = dao.storeinfoupdate(storeName, storeContent, storeTime, storeAdd, storePhone, menu, StoreNum, storeHit);
+        StoreInfoVO storeinfo = dao.storeinfoupdate(storeName, storeContent, storeTime, storeAdd, storePhone, menu, storeNum, storeHit);
 		
 
-        response.sendRedirect("http://localhost:8181/AteamFirstProject/getStoreInfoDetail?storeNum=" + StoreNum);
+        response.sendRedirect("http://localhost:8181/AteamFirstProject/getStoreInfoDetail?storeNum=" + storeNum);
 	}
 
 }

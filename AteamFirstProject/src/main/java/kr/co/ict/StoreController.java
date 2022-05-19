@@ -30,23 +30,17 @@ public class StoreController extends HttpServlet {
      */
     public StoreController() {
         super();
-        // TODO Auto-generated constructor stub
+     
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		doRequest(request, response);
 		}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doRequest(request, response);		
 		}
+	
 	protected void doRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
@@ -82,7 +76,7 @@ public class StoreController extends HttpServlet {
 			sv.execute(request, response);
 			// boardList로 리다이렉트
 			ui = "/getStoreInfoList.do";
-		}else if(uri.equals("/AteamFirstProject/StroreInfoUpdateForm.do")) {
+		}else if(uri.equals("/AteamFirstProject/storeinfoUpdateForm.do")) {
 			sv = new StoreinfoUpdateFormService();
 			sv.execute(request, response);
 			// 포워딩
