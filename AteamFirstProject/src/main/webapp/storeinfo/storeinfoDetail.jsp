@@ -26,23 +26,21 @@ ${storeinfo }
 	
 	
 	<form action="http://localhost:8181/AteamFirstProject/StroreInfoUpdateForm.do" method="post">
-	<input type="hidden" value="${storeinfo.storeNum }" name="storeNum">
-	<input type="submit" value="수정">
+		<input type="hidden" value="${storeinfo.storeNum }" name="storeNum">
+		<input type="submit" value="수정">
 	</form>
 	
 	<form action="http://localhost:8181/AteamFirstProject/storeinfodelete.do" method="post">	
-	<input type="hidden" name="storeNum" value="${storeinfo.storeNum }">
-	<input type="hidden" name="id" value="${sessionScope.user.id}">	
-	<input type="hidden" name="userNum" value="${sessionScope.user.userNum}">	
-	<input type="submit" value="삭제"/>
+		<input type="hidden" name="storeNum" value="${storeinfo.storeNum }">
+		<input type="hidden" name="id" value="${sessionScope.user.id}">	
+		<input type="hidden" name="userNum" value="${sessionScope.user.userNum}">	
+		<input type="submit" value="삭제"/>
 	</form>
 	
-
-	<a href="http://localhost:8181/AteamFirstProject/getStoreInfoDetail?storeNum=${store.storeNum}">${store.storeName}</a> 	
-	<input type="hidden" name="storeNum" value="${storeinfo.storeNum }">
-	<input type="hidden" name="id" value="${sessionScope.user.id}">	
-	<input type="hidden" name="userNum" value="${sessionScope.user.userNum}">	
-	<input type="submit" value="즐겨찾기 추가"/>
+	<form action="http://localhost:8181/AteamFirstProject/firstProject/userBookmarkUpdate.jsp" method="get"> 	
+		<input type="hidden" name="storeNum" value="${storeinfo.storeNum}">
+		<input type="hidden" name="userNum" value="${sessionScope.user.userNum}">
+		<input type="submit" value="즐겨찾기 추가">
 	</form>
 	</c:if>
 </body>
