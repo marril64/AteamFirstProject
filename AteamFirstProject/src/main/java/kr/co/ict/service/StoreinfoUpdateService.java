@@ -16,9 +16,9 @@ public class StoreinfoUpdateService implements IStoreinfoService{
 		StoreInfoDAO dao = StoreInfoDAO.getInstance();
 		String strStoreNum = request.getParameter("storeNum");		
 		int storenum = Integer.parseInt(strStoreNum);
-	
+		String id = request.getParameter("id");
 
-		String storeNum = request.getParameter("storeNum");
+		int storeNum = Integer.parseInt(request.getParameter("storeNum"));
 		String storeName =request.getParameter("storeName");
 		String storeContent =request.getParameter("storeContent");
 		String storeTime =request.getParameter("storeTime");
@@ -27,9 +27,14 @@ public class StoreinfoUpdateService implements IStoreinfoService{
 		String menu = request.getParameter("menu");	
 		int storeHit = Integer.parseInt(request.getParameter("storeHit"));
 		
+		if(id != null && id.equals("Admin")) {
 		
-		dao.storeinfoInsert(storeName, storeContent, storeTime, storeAdd, storePhone, menu, storeHit);
-			
+			dao.storeinfoInsert(storeName, storeContent, storeTime, storeAdd, storePhone, menu, storeHit);
+		}
 
 		}
+
+
+		
 	}
+	

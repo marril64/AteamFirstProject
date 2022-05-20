@@ -18,13 +18,13 @@ import kr.co.ict.domain.StoreInfoVO;
  * Servlet implementation class StroreInfoUpdateForm
  */
 @WebServlet("/StroreInfoUpdateForm")
-public class StroreInfoUpdateForm extends HttpServlet {
+public class StoreInfoUpdateForm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StroreInfoUpdateForm() {
+    public StoreInfoUpdateForm() {
         super();
         // TODO Auto-generated constructor stub
     }

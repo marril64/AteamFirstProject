@@ -20,21 +20,30 @@ ${storeinfo }
 	
 	
 	<hr/>
-	<a href="http://localhost:8181/AteamFirstProject/getstoreinfoList.do"><button>목록</a></button><br/>
+	<a href="http://localhost:8181/AteamFirstProject/getStoreInfoList.do"><button>목록</a></button><br/>
 	<c:if test="${sessionScope.user.id ne null}">
-	<form action="http://localhost:8181/AteamFirstProject/storeinfodelete.do" method="post">
+	<a href="http://localhost:8181/AteamFirstProject/storeinfo/storeinfoInsertForm.jsp"><button>작성하기</a></button>	
 	
-	<input type="hidden" name="storeNum" value="${storeinfo.storeNum }">
-	<input type="hidden" name="id" value="${reuser.userNum}">
-	
-	<input type="submit" value="삭제"/>
-	</form>
 	
 	<form action="http://localhost:8181/AteamFirstProject/StroreInfoUpdateForm.do" method="post">
 	<input type="hidden" value="${storeinfo.storeNum }" name="storeNum">
 	<input type="submit" value="수정">
 	</form>
-	<a href="http://localhost:8181/AteamFirstProject/storeinfo/storeinfoInsertForm.jsp"><button>작성하기</a></button>	
+	
+	<form action="http://localhost:8181/AteamFirstProject/storeinfodelete.do" method="post">	
+	<input type="hidden" name="storeNum" value="${storeinfo.storeNum }">
+	<input type="hidden" name="id" value="${sessionScope.user.id}">	
+	<input type="hidden" name="userNum" value="${sessionScope.user.userNum}">	
+	<input type="submit" value="삭제"/>
+	</form>
+	
+
+	<a href="http://localhost:8181/AteamFirstProject/getStoreInfoDetail?storeNum=${store.storeNum}">${store.storeName}</a> 	
+	<input type="hidden" name="storeNum" value="${storeinfo.storeNum }">
+	<input type="hidden" name="id" value="${sessionScope.user.id}">	
+	<input type="hidden" name="userNum" value="${sessionScope.user.userNum}">	
+	<input type="submit" value="즐겨찾기 추가"/>
+	</form>
 	</c:if>
 </body>
 </html>

@@ -19,10 +19,14 @@
 	가게주소 :<input type="text" name="storeAdd"/></br>
 	전화번호 :<input type="text" name="storePhone"/></br>
 	영업시간 :<input type="time" name="storeStartTime"/>
-			<input type="time" name="storeEndTime"/>
+			<input type="time" name="storeEndTime"/></br>
 	
 	<input type="submit" value="글쓰기"/>
 	<input type="reset" value="초기화"/>
+	<form action="http://localhost:8181/AteamFirstProject/getStoreInfoList.do" method="post">
+		<input type="submit" value="목록으로 돌아가기">
+	</form>
+	
 </form>
 
 </body>

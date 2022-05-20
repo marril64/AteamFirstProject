@@ -3,18 +3,20 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     세션값 : ${sessionScope.user.id }<br/>
 <c:if test="${sessionScope.user.id eq null}">
-	<% //response.sendRedirect("http://localhost:8181/AteamFirstProject/"); %>
+	<% response.sendRedirect("http://localhost:8181/AteamFirstProject/userLoginForm"); %>
 </c:if>
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <div class="container">
 	<h1>/StoreInfoList 로 연결된 임시페이지입니다.</h1>
-	<table border="1">
+	 <table border="1">
+	
 		<thead>
 			<tr>			
 				<td>가게이름</td>
@@ -52,22 +54,22 @@
 			<!-- 이전 10개 페이지 조회버튼을 출력합니다.
 			현재 조회중인 페이지가 1~10페이지가 아닐때만, 첫페이지 -1 을 목표주소로 해서 prev버튼을 만들면 됩니다. -->
 			<c:if test="${buttons.startPage ne 1}">
-				<li class="page-item"><a class="page-link" href="http://localhost:8181/AteamFirstProject/getStoreInfoList?pageNum=${buttons.startPage - 1}">Previous</a></li>
+				<li class="page-item"><a class="page-link" href="http://localhost:8181/AteamFirstProject/getStoreInfoList.do?pageNum=${buttons.startPage - 1}">Previous</a></li>
 			</c:if>   
 			
 			<!-- foreach문의 begin, end속성을 이용해 숫자를 알맞게 깔아주세요. -->
 			<c:forEach var="pageNum" begin="${buttons.startPage }" end="${buttons.endPage }">
-				<li class="page-item ${buttons.currentPage eq pageNum ? 'active' : ''}"><a class="page-link" href="http://localhost:8181/AteamFirstProject/getStoreInfoList?pageNum=${pageNum}">${pageNum}</a></li>
+				<li class="page-item ${buttons.currentPage eq pageNum ? 'active' : ''}"><a class="page-link" href="http://localhost:8181/AteamFirstProject/getStoreInfoList.do?pageNum=${pageNum}">${pageNum}</a></li>
 			</c:forEach>
 			
 			<!-- 이후 페이지 조회버튼을 출력합니다.
 			현재 조회중인 페이지그룹과 전체 글의 마지막 페이지의 관계에 대해서 생각해보시면 됩니다. -->
 			<c:if test="${buttons.endPage ne buttons.totalPages}">
-				<li class="page-item"><a class="page-link" href="http://localhost:8181/AteamFirstProject/getstoreinfoList?pageNum=${buttons.endPage + 1}">Next</a></li>
+				<li class="page-item"><a class="page-link" href="http://localhost:8181/AteamFirstProject/getstoreinfoList.do?pageNum=${buttons.endPage + 1}">Next</a></li>
 			</c:if>
 		</ul>
 		<br>
-		${sessionScope.id ne null}<br/>
+		${sessionScope.user.id ne null}<br/>
 		<c:if test="${sessionScope.user.id ne null}">	
 			<a href="http://localhost:8181/AteamFirstProject/storeinfo/storeinfoInsertForm.jsp"><button>글쓰기</button></a>
 		</c:if>

@@ -31,7 +31,7 @@
 	<form action="http://localhost:8181/AteamFirstProject/firstProject/userLogout.jsp" method="post">
 		<input type="submit" value="로그아웃">
 	</form>
-	<form action="http://localhost:8181/AteamFirstProject/getstoreinfoList" method="post">
+	<form action="http://localhost:8181/AteamFirstProject/getStoreInfoList.do" method="post">
 		<input type="submit" value="목록으로 돌아가기">
 	</form>
 </body>

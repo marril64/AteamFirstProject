@@ -17,8 +17,7 @@ public class StoreinfoUpdateFormService implements IStoreinfoService {
 		StoreInfoDAO dao = StoreInfoDAO.getInstance();
 		String strstoreNum = request.getParameter("storeNum");
 		
-		int storeNum = Integer.parseInt(strstoreNum);
-		
+		int storeNum = Integer.parseInt(strstoreNum);		
 		StoreInfoVO storeinfo = dao.getstoreinfoDetail(storeNum);
 		request.setAttribute("storeinfo", storeinfo);
 	}
