@@ -14,7 +14,7 @@
 	<h1>${sessionScope.user.id}님 환영합니다.</h1>
 	<h3>회원고유번호 : ${sessionScope.user.userNum}</h3>
 	<h3>전화번호 : ${sessionScope.user.phone}</h3>
-	<h3>닉네임 : ${sessionScope.user.nick}</h3>
+	<h3>가게이름 : ${sessionScope.user.nick}</h3>
 	<form action="http://localhost:8181/AteamFirstProject/userBookmarkForm" method="post">
 		<input type="hidden" name=id value="${sessionScope.user}">
 		<input type="hidden" name="userNum" value="${sessionScope.user.userNum}">
