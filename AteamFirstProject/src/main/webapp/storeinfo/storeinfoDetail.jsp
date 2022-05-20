@@ -21,7 +21,7 @@ ${storeinfo }
 	
 	<hr/>
 	<a href="http://localhost:8181/AteamFirstProject/getStoreInfoList.do"><button>목록</a></button><br/>
-	<c:if test="${sessionScope.user.id ne null}">
+	<c:if test="${sessionScope.user.id eq Admin}">  
 	<a href="http://localhost:8181/AteamFirstProject/storeinfo/storeinfoInsertForm.jsp"><button>작성하기</a></button>	
 	
 	
@@ -36,12 +36,12 @@ ${storeinfo }
 		<input type="hidden" name="userNum" value="${sessionScope.user.userNum}">	
 		<input type="submit" value="삭제"/>
 	</form>
-	
+	</c:if>
 	<form action="http://localhost:8181/AteamFirstProject/firstProject/userBookmarkUpdate.jsp" method="get"> 	
 		<input type="hidden" name="storeNum" value="${storeinfo.storeNum}">
 		<input type="hidden" name="userNum" value="${sessionScope.user.userNum}">
 		<input type="submit" value="즐겨찾기 추가">
 	</form>
-	</c:if>
+	
 </body>
 </html>
