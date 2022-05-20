@@ -8,31 +8,45 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>${sessionScope.user.id}님 환영합니다.</h1>
-	<h3>회원고유번호 : ${sessionScope.user.userNum}</h3>
-	<h3>전화번호 : ${sessionScope.user.phone}</h3>
-	<h3>가게이름 : ${sessionScope.user.nick}</h3>
-	<form action="http://localhost:8181/AteamFirstProject/userBookmarkForm" method="post">
-		<input type="hidden" name=id value="${sessionScope.user}">
-		<input type="hidden" name="userNum" value="${sessionScope.user.userNum}">
-		<input type="submit" value="즐겨찾기">
-	</form>
-	<form action="http://localhost:8181/AteamFirstProject/firstProject/userUpdate.jsp" method="post">
-		<input type="hidden" name="id" value="${sessionScope.user}">
-		<input type="submit" value="수정하기">
-	</form>
-	<form action="http://localhost:8181/AteamFirstProject/firstProject/userDelete.jsp" method="post">
-		<input type="hidden" name="id" value="${sessionScope.user}">
-		<input type="submit" value="회원탈퇴">
-	</form>
-	<form action="http://localhost:8181/AteamFirstProject/firstProject/userLogout.jsp" method="post">
-		<input type="submit" value="로그아웃">
-	</form>
-	<form action="http://localhost:8181/AteamFirstProject/getStoreInfoList.do" method="post">
-		<input type="submit" value="목록으로 돌아가기">
-	</form>
+	<div class="container">
+		<h1>${sessionScope.user.id}님 환영합니다.</h1>
+		<h3>회원고유번호 : ${sessionScope.user.userNum}</h3>
+		<h3>전화번호 : ${sessionScope.user.phone}</h3>
+		<h3>가게이름 : ${sessionScope.user.nick}</h3>
+		<div class="btn-group" role="group" aria-label="First group">
+			<form action="http://localhost:8181/AteamFirstProject/userBookmarkForm" method="post">
+				<input type="hidden" name=id value="${sessionScope.user}">
+				<input type="hidden" name="userNum" value="${sessionScope.user.userNum}">
+				<input type="submit" value="즐겨찾기">
+			</form>
+		</div>
+		<div class="btn-group" role="group" aria-label="Second group">
+			<form action="http://localhost:8181/AteamFirstProject/firstProject/userUpdate.jsp" method="post">
+				<input type="hidden" name="id" value="${sessionScope.user}">
+				<input type="submit" value="수정하기">
+			</form>
+		</div>
+		<div class="btn-group" role="group" aria-label="Third group">
+			<form action="http://localhost:8181/AteamFirstProject/firstProject/userDelete.jsp" method="post">
+				<input type="hidden" name="id" value="${sessionScope.user}">
+				<input type="submit" value="회원탈퇴">
+			</form>
+		</div>
+		<div class="btn-group" role="group" aria-label="fourth group">
+			<form action="http://localhost:8181/AteamFirstProject/firstProject/userLogout.jsp" method="post">
+				<input type="submit" value="로그아웃">
+			</form>
+		</div>
+		<div class="btn-group" role="group" aria-label="fifth group">
+			<form action="http://localhost:8181/AteamFirstProject/getStoreInfoList.do" method="post">
+				<input type="submit" value="목록으로 돌아가기">
+			</form>
+		</div>
+	</div>
 </body>
 </html>

@@ -68,6 +68,10 @@
 				<li class="page-item"><a class="page-link" href="http://localhost:8181/AteamFirstProject/getstoreinfoList.do?pageNum=${buttons.endPage + 1}">Next</a></li>
 			</c:if>
 		</ul>
+		<br/>
+		<form action="http://localhost:8181/AteamFirstProject/firstProject/userInfo.jsp" method="post">
+			<input type="submit" value="회원정보">
+		</form>
 		<br>
 		${sessionScope.user.id ne null}<br/>
 		<c:if test="${sessionScope.user.id ne null}">	
