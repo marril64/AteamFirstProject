@@ -47,7 +47,7 @@ public class userPasswordCheck extends HttpServlet {
 			System.out.println("회원정보 변경으로 세션을 재발급합니다.");
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
-			response.sendRedirect("http://localhost:8181/AteamFirstProject/firstProject/userInfo.jsp");
+			response.sendRedirect("http://localhost:8181/AteamFirstProject/firstProject/userUpdateSuccess.jsp");
 		} else {
 			System.out.println("비밀번호를 다시 입력해주십시오.");
 			response.sendRedirect("http://localhost:8181/AteamFirstProject/firstProject/userInfo.jsp");

@@ -41,7 +41,7 @@ public class userDelete extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.invalidate();
 			System.out.println("세션을 파기합니다.");
-			response.sendRedirect("http://localhost:8181/AteamFirstProject/userLoginForm");
+			response.sendRedirect("http://localhost:8181/AteamFirstProject/firstProject/userDeleteSuccess.jsp");
 		} else {
 			System.out.println("아이디와 비밀번호를 다시 입력해 주십시오.");
 			response.sendRedirect("http://localhost:8181/AteamFirstProject/firstProject/userInfo.jsp");

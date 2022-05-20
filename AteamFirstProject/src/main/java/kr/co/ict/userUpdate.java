@@ -46,7 +46,7 @@ public class userUpdate extends HttpServlet {
 			System.out.println("회원정보 변경으로 세션을 재발급합니다.");
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
-			response.sendRedirect("http://localhost:8181/AteamFirstProject/firstProject/userInfo.jsp");
+			response.sendRedirect("http://localhost:8181/AteamFirstProject/firstProject/userUpdateSuccess.jsp");
 		} else {
 			System.out.println("로그인이 필요한 서비스입니다.");
 			response.sendRedirect("http://localhost:8181/AteamFirstProject/userLoginForm");
