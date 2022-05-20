@@ -43,7 +43,7 @@ public class StoreinfoButtonDTO {
 				navNum = currentPage / 10;
 			}*/
 			
-			navNum = (((currentPage - 1) / 10) * 10) + 1; // 간소화 코드
+			navNum = (((currentPage - 1) / 6) * 10) + 1; // 간소화 코드
 			
 			// 시작페이지 구하기 완료
 			this.startPage = navNum;

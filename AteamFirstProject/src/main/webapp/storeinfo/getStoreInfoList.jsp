@@ -69,14 +69,17 @@
 			</c:if>
 		</ul>
 		<br/>
+		
+		<c:if test="${sessionScope.user.id ne null}">
 		<form action="http://localhost:8181/AteamFirstProject/firstProject/userInfo.jsp" method="post">
 			<input type="submit" value="회원정보">
-		</form>
+		
+		</c:if>
 		<br>
-		${sessionScope.user.id ne null}<br/>
-		<c:if test="${sessionScope.user.id ne null}">	
+		<c:if test="${sessionScope.user.id eq 'Admin'}">	
 			<a href="http://localhost:8181/AteamFirstProject/storeinfo/storeinfoInsertForm.jsp"><button>글쓰기</button></a>
 		</c:if>
+		</form>
 	</div><!-- div.container -->
 </body>
 </html>
