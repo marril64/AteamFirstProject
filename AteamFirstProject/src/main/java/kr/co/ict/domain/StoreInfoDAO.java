@@ -41,7 +41,9 @@ private DataSource ds = null;
 		// 필요한 모든 변수가 선언되었다면 try블럭을 선언합니다.
 		try {
 			con = ds.getConnection();
+			
 			int num = (pageNum - 1) *10;
+			
 			// 쿼리문 저장
 			// PreparedStatement에 쿼리문 입력
 			String sql = "SELECT * FROM storeinfo ORDER BY storeNum DESC limit ?, 10;";

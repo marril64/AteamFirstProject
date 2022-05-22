@@ -18,6 +18,8 @@ import kr.co.ict.service.StoreinfoListService;
 import kr.co.ict.service.StoreinfoUpdateFormService;
 import kr.co.ict.service.StoreinfoUpdateService;
 
+
+
 /**
  * Servlet implementation class StoreController
  */
@@ -58,7 +60,7 @@ public class StoreController extends HttpServlet {
 			// 서비스의 .execute(request, response) 호출
 			sv.execute(request, response);
 			ui = "/storeinfo/getStoreInfoList.jsp";
-		}else if(uri.equals("/AteamFirstProject/getstoreinfoList.do")) {
+		}else if(uri.equals("/AteamFirstProject/getStoreInfoDetail.do")) {
 			sv = new StoreinfoDetailService();
 			sv.execute(request, response);
 			ui = "/storeinfo/storeinfoDetail.jsp";
@@ -80,12 +82,12 @@ public class StoreController extends HttpServlet {
 			sv = new StoreinfoUpdateFormService();
 			sv.execute(request, response);
 			// 포워딩
-			ui = "/storeinfo/StoreInfoUpdateForm.jsp";
+			ui = "/storeinfo/storeinfoUpdateForm.jsp";
 		}else if(uri.equals("/storeinfo/StoreInfoUpdate.do")) {
 			sv = new StoreinfoUpdateService();
 			sv.execute(request, response);
 			// 리다이렉트(boardNum번 detail페이지로 이동.)
-			ui = "/storeinfoDetail.do?storeNum=" + request.getParameter("storeNum");
+			ui = "/getStoreInfoDetail.do?storeNum=" + request.getParameter("storeNum");
 		}
 		
 		

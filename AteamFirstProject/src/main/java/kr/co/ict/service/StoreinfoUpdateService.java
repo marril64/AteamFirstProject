@@ -15,18 +15,19 @@ public class StoreinfoUpdateService implements IStoreinfoService{
 		request.setCharacterEncoding("utf-8");
 		StoreInfoDAO dao = StoreInfoDAO.getInstance();
 		String strStoreNum = request.getParameter("storeNum");		
-		int storenum = Integer.parseInt(strStoreNum);
+		int Storenum = Integer.parseInt(strStoreNum);
 		String id = request.getParameter("id");
 
-		int storeNum = Integer.parseInt(request.getParameter("storeNum"));
+		
 		String storeName =request.getParameter("storeName");
 		String storeContent =request.getParameter("storeContent");
 		String storeTime =request.getParameter("storeTime");
 		String storeAdd = request.getParameter("storeAdd");
 		String storePhone = request.getParameter("storePhone");
 		String menu = request.getParameter("menu");	
+		int storeNum = Integer.parseInt(request.getParameter("storeNum"));
 		int storeHit = Integer.parseInt(request.getParameter("storeHit"));
-		
+
 		if(id != null && id.equals("Admin")) {
 		
 			dao.storeinfoInsert(storeName, storeContent, storeTime, storeAdd, storePhone, menu, storeHit);

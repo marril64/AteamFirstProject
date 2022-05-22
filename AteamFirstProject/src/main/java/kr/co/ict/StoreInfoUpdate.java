@@ -43,7 +43,7 @@ public class StoreInfoUpdate extends HttpServlet {
 		String storeAdd = request.getParameter("storeAdd");
 		String storePhone = request.getParameter("storePhone");
 		String menu = request.getParameter("menu");
-		//int StoreNum = Integer.parseInt(request.getParameter("storeNum"));	
+		int StoreNum = Integer.parseInt(request.getParameter("storeNum"));	
 		int storeHit = Integer.parseInt(request.getParameter("storeHit"));
 		
         StoreInfoDAO dao = StoreInfoDAO.getInstance();

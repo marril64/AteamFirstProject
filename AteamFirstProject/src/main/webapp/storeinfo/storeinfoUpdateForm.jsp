@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:if test="${sessionScope.user.id ne null }">
-	<% response.sendRedirect("http://localhost:8181/AteamFirstProject/userLoginForm"); %>
+	<% //response.sendRedirect("http://localhost:8181/AteamFirstProject/userLoginForm"); %>
+	<% response.sendRedirect("http://localhost:8181/AteamFirstProject/getstoreinfoList.do"); %>
 </c:if>    
 <!DOCTYPE html>
 <html>
@@ -12,7 +13,7 @@
 </head>
 <body>
 ${storeinfo}<hr/>
-<form action="http://localhost:8181/AteamFirstProject/StroreInfoUpdateForm.do" method="post">
+<form action="http://localhost:8181/AteamFirstProject/StroreInfoUpdate.do" method="post">
 
 <input type="hidden" name="storeNum" value="${storeinfo.storeNum}">
 가게이름 :<input type="text" name="storeName" value="${storeinfo.storeName }"/></br>
@@ -21,7 +22,7 @@ ${storeinfo}<hr/>
 전화번호 :<input type="text" name="storePhone" value="${storeinfo.storePhone }"/></br>
 영업시간 : <input type="time" name="storeStartTime" value="${storeinfo.storeTime }"/>
 		<input type="time" name="storeEndTime" value="${storeinfo.storeTime }"/> <br>
-    	<input type="hidden" name= "id" value="${sessionScope.user.id }"/>
+    	<!-- <input type="hidden" name= "id" value="${sessionScope.user.id }"/> -->
 <input type="submit" value="글쓰기"/>
 <input type="reset" value="초기화"/>
 </body>
