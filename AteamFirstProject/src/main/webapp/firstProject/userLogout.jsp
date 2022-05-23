@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="http://localhost:8181/AteamFirstProject/userLogout" method="post">
+	<form action="/AteamFirstProject/userLogout.user" method="post">
 		로그아웃을 진행하시겠습니까?<br/>
 		<input type="submit" name="yes" value="네">
 		<input type="submit" name="no" value="아니오">

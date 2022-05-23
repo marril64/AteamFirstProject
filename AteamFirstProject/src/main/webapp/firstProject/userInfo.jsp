@@ -19,31 +19,31 @@
 		<h3>전화번호 : ${sessionScope.user.phone}</h3>
 		<h3>가게이름 : ${sessionScope.user.nick}</h3>
 		<div class="btn-group" role="group" aria-label="First group">
-			<form action="http://localhost:8181/AteamFirstProject/userBookmarkForm" method="post">
+			<form action="/AteamFirstProject/userBookmarkForm.user" method="post">
 				<input type="hidden" name=id value="${sessionScope.user}">
 				<input type="hidden" name="userNum" value="${sessionScope.user.userNum}">
 				<input type="submit" value="즐겨찾기">
 			</form>
 		</div>
 		<div class="btn-group" role="group" aria-label="Second group">
-			<form action="http://localhost:8181/AteamFirstProject/firstProject/userUpdate.jsp" method="post">
+			<form action="/AteamFirstProject/userUpdateForm.user" method="post">
 				<input type="hidden" name="id" value="${sessionScope.user}">
 				<input type="submit" value="수정하기">
 			</form>
 		</div>
 		<div class="btn-group" role="group" aria-label="Third group">
-			<form action="http://localhost:8181/AteamFirstProject/firstProject/userDelete.jsp" method="post">
+			<form action="/AteamFirstProject/userDeleteForm.user" method="post">
 				<input type="hidden" name="id" value="${sessionScope.user}">
 				<input type="submit" value="회원탈퇴">
 			</form>
 		</div>
 		<div class="btn-group" role="group" aria-label="fourth group">
-			<form action="http://localhost:8181/AteamFirstProject/firstProject/userLogout.jsp" method="post">
+			<form action="/AteamFirstProject/userLogoutForm.user" method="post">
 				<input type="submit" value="로그아웃">
 			</form>
 		</div>
 		<div class="btn-group" role="group" aria-label="fifth group">
-			<form action="http://localhost:8181/AteamFirstProject/getStoreInfoList.do" method="post">
+			<form action="/AteamFirstProject/getStoreInfoList.do" method="post">
 				<input type="submit" value="목록으로 돌아가기">
 			</form>
 		</div>

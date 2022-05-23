@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h3>회원탈퇴가 진행되었습니다.</h3>
-	<form action="http://localhost:8181/AteamFirstProject/userLoginForm" method="get">
+	<form action="/AteamFirstProject/userLoginForm.user" method="get">
 		<input type="submit" value="처음으로">
 	</form>
 </body>

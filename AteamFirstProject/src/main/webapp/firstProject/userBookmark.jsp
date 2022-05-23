@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:if test="${sessionScope.user.id eq null}">
-	<% response.sendRedirect("http://localhost:8181/AteamFirstProject/userLoginForm"); %>
+	<% response.sendRedirect("/AteamFirstProject/userLoginForm.user"); %>
 </c:if>
 <!DOCTYPE html>
 <html>
@@ -28,13 +28,13 @@
 			<c:forEach var="store" items="${store}">
 				<tr>
 					<td>${store.storeNum}</td>
-					<td><a href="http://localhost:8181/AteamFirstProject/getStoreInfoDetail?storeNum=${store.storeNum}">${store.storeName}</a></td>
+					<td><a href="/AteamFirstProject/getStoreInfoDetail?storeNum=${store.storeNum}">${store.storeName}</a></td>
 					<td>${store.storeTime}</td>
 					<td>${store.storeAdd}</td>
 					<td>${store.storePhone}</td>
 					<td>${store.menu}</td>
 					<td>
-						<form action="http://localhost:8181/AteamFirstProject/firstProject/userBookmarkDelete.jsp" method="post">
+						<form action="/AteamFirstProject/userBookmarkDelete.user" method="post">
 							<input type="hidden" name="storeNum" value="${store.storeNum}">
 							<input type="submit" value="삭제">
 						</form>
@@ -43,7 +43,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<form action="http://localhost:8181/AteamFirstProject/firstProject/userInfo.jsp" method="post">
+	<form action="http://localhost:8181/AteamFirstProject/userLoginForm.user" method="post">
 		<input type="submit" value="돌아가기">
 	</form>
 </body>

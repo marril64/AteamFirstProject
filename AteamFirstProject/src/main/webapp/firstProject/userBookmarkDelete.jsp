@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:if test="${sessionScope.user.id eq null}">
-	<% response.sendRedirect("http://localhost:8181/AteamFirstProject/userLoginForm"); %>
+	<% response.sendRedirect("/AteamFirstProject/userLoginForm.user"); %>
 </c:if>
 <!DOCTYPE html>
 <html>
@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="http://localhost:8181/AteamFirstProject/userBookmarkDelete" method="post">
+	<form action="/AteamFirstProject/userBookmarkDelete.user" method="post">
 		이 가게를 즐겨찾기에서 삭제하시겠습니까?<br/>
 		<input type="hidden" name="userNum" value="${sessionScope.user.userNum}">
 		<input type="hidden" name="storeNum" value="${param.storeNum}">
