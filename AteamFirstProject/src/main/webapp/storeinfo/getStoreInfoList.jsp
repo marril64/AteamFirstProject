@@ -71,7 +71,7 @@
 		<br/>
 		
 		<c:if test="${sessionScope.user.id ne null}">
-		<form action="http://localhost:8181/AteamFirstProject/firstProject/userInfo.jsp" method="post">
+		<form action="/AteamFirstProject/userLoginForm.user" method="post">
 			<input type="submit" value="회원정보">
 		
 		</c:if>
