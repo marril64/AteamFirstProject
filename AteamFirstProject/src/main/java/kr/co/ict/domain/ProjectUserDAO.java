@@ -377,4 +377,26 @@ public class ProjectUserDAO {
 		}
 	} // 유저 고유번호와 가게 고유번호로 즐겨찾기 추가하는 기능
 	
+	public void bookmarkAllDelete(int storeNum) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			con = ds.getConnection();
+			String sql = "DELETE FROM bookMark WHERE storeNum = ?;";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, storeNum);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+				pstmt.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	} // 해당 번호의 가게를 즐겨찾기에서 완전히 삭제하는 로직.
+	
 }

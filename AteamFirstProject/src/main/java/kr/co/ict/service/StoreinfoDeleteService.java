@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kr.co.ict.domain.ProjectUserDAO;
 import kr.co.ict.domain.StoreInfoDAO;
 
 public class StoreinfoDeleteService implements IStoreinfoService{
@@ -16,9 +17,11 @@ public class StoreinfoDeleteService implements IStoreinfoService{
 		
 		String id = request.getParameter("id");
 		StoreInfoDAO dao = StoreInfoDAO.getInstance();
+		ProjectUserDAO dao2 = ProjectUserDAO.getInstance();
 		int storeNum = Integer.parseInt(request.getParameter("storeNum"));
 	
 		if(id != null && id.equals("Admin")) {
+			dao2.bookmarkAllDelete(storeNum);
 			dao.storeinfoDelete(storeNum);
 		}
 		

@@ -23,7 +23,7 @@ ${storeinfo}<hr/>
 메뉴 : <input type="text" name="menu" value="${storeinfo.menu}"><br/>
 영업시간 : <input type="time" name="storeStartTime" value="${storeinfo.storeTime }"/>
 		<input type="time" name="storeEndTime" value="${storeinfo.storeTime }"/> <br>
-    	<!-- <input type="hidden" name= "id" value="${sessionScope.user.id }"/> -->
+    	<input type="hidden" name= "id" value="${sessionScope.user.id }"/>
 <input type="submit" value="글쓰기"/>
 <input type="reset" value="초기화"/>
 </body>
