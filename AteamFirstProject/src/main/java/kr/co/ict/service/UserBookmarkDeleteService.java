@@ -21,7 +21,7 @@ public class UserBookmarkDeleteService implements IUserService {
 		String yes = request.getParameter("yes");
 		String no = request.getParameter("no");
 		int userNum = Integer.parseInt(request.getParameter("userNum"));
-
+		
 		if (yes != null) {
 			int storeNum = Integer.parseInt(request.getParameter("storeNum"));
 			dao.bookmarkDelete(userNum, storeNum);

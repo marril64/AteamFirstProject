@@ -63,7 +63,7 @@ public class userController extends HttpServlet {
 		} else if (uri.equals("/AteamFirstProject/userLogout.user")) {
 			sv = new UserLogoutService();
 			sv.execute(request, response);
-			ui = "/AteamFirstProject/userLoginForm.user";
+			ui = "/firstProject/userLogin.jsp";
 		} else if (uri.equals("/AteamFirstProject/userJoinForm.user")) {
 			ui = "/firstProject/userJoin.jsp";
 		} else if (uri.equals("/AteamFirstProject/userJoin.user")) {
@@ -96,7 +96,7 @@ public class userController extends HttpServlet {
 			sv = new UserBookmarkUpdateService();
 			sv.execute(request, response);
 			ui = "/firstProject/userBookmark.jsp";
-		} else if (uri.equals("/AteamFirstProject/userBookmarkDelete.user")) {
+		} else if (uri.equals("/AteamFirstProject/userBookmarkDelete.user")) { // 문제코드
 			sv = new UserBookmarkDeleteService();
 			sv.execute(request, response);
 			ui = "/firstProject/userBookmark.jsp";
