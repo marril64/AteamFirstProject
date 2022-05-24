@@ -13,7 +13,7 @@
 </head>
 <body>
 ${storeinfo}<hr/>
-<form action="http://localhost:8181/AteamFirstProject/StroreInfoUpdate.do" method="post">
+<form action="http://localhost:8181/AteamFirstProject/StoreInfoUpdate.do" method="post">
 
 <input type="hidden" name="storeNum" value="${storeinfo.storeNum}">
 가게이름 :<input type="text" name="storeName" value="${storeinfo.storeName }"/></br>

@@ -65,7 +65,7 @@
 			<!-- 이후 페이지 조회버튼을 출력합니다.
 			현재 조회중인 페이지그룹과 전체 글의 마지막 페이지의 관계에 대해서 생각해보시면 됩니다. -->
 			<c:if test="${buttons.endPage ne buttons.totalPages}">
-				<li class="page-item"><a class="page-link" href="http://localhost:8181/AteamFirstProject/getstoreinfoList.do?pageNum=${buttons.endPage + 1}">Next</a></li>
+				<li class="page-item"><a class="page-link" href="http://localhost:8181/AteamFirstProject/getStoreInfoList.do?pageNum=${buttons.endPage + 1}">Next</a></li>
 			</c:if>
 		</ul>
 		<br/>

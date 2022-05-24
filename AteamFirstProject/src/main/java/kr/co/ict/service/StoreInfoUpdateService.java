@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.co.ict.domain.StoreInfoDAO;
 
-public class StoreinfoUpdateService implements IStoreinfoService{
+public class StoreInfoUpdateService implements IStoreinfoService{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,12 +25,10 @@ public class StoreinfoUpdateService implements IStoreinfoService{
 		String storeAdd = request.getParameter("storeAdd");
 		String storePhone = request.getParameter("storePhone");
 		String menu = request.getParameter("menu");	
-		int storeNum = Integer.parseInt(request.getParameter("storeNum"));
-		int storeHit = Integer.parseInt(request.getParameter("storeHit"));
 
 		if(id != null && id.equals("Admin")) {
 		
-			dao.storeinfoInsert(storeName, storeContent, storeTime, storeAdd, storePhone, menu, storeHit);
+			dao.StoreInfoUpdate(storeName, storeContent, storeAdd, storeTime, storePhone, menu, Storenum);
 		}
 
 		}

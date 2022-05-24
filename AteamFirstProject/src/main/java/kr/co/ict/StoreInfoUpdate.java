@@ -17,7 +17,7 @@ import kr.co.ict.domain.StoreInfoVO;
 /**
  * Servlet implementation class StroreInfoUpdate
  */
-@WebServlet("/StroreInfoUpdate")
+@WebServlet("/StoreInfoUpdate")
 public class StoreInfoUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -35,22 +35,23 @@ public class StoreInfoUpdate extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		String strStoreNum = request.getParameter("storenum");
-		int storeNum = Integer.parseInt(strStoreNum);
+		int storenum = Integer.parseInt(strStoreNum);
 		
 		String storeName =request.getParameter("storeName");
 		String storeContent =request.getParameter("storeContent");
 		String storeTime =request.getParameter("storeTime");
 		String storeAdd = request.getParameter("storeAdd");
 		String storePhone = request.getParameter("storePhone");
-		String menu = request.getParameter("menu");
-		int StoreNum = Integer.parseInt(request.getParameter("storeNum"));	
+		String menu = request.getParameter("menu");	
 		int storeHit = Integer.parseInt(request.getParameter("storeHit"));
 		
+		System.out.println(storeName + ", " + storeContent + ", " + storeTime + ", " + storeAdd + ", " + storePhone + ", " +  menu  + ", " + storeHit);
         StoreInfoDAO dao = StoreInfoDAO.getInstance();
-        StoreInfoVO storeinfo = dao.storeinfoupdate(storeName, storeContent, storeTime, storeAdd, storePhone, menu, storeNum, storeHit);
+        dao.StoreInfoUpdate(storeName, storeContent, storeTime, storeAdd, storePhone, menu, storenum);
 		
+      
 
-        response.sendRedirect("http://localhost:8181/AteamFirstProject/getStoreInfoDetail?storeNum=" + storeNum);
+        response.sendRedirect("http://localhost:8181/AteamFirstProject/getStoreInfoDetail?storeNum=" + storenum);
 	}
 
 }

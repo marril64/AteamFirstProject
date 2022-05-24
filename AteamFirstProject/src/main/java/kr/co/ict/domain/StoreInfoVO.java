@@ -15,6 +15,7 @@ public class StoreInfoVO {
 		private int storeHit;
 		
 		
+		
 		public int getStoreNum() {
 			return storeNum;
 		}
@@ -69,5 +70,5 @@ public class StoreInfoVO {
 					+ ", storeAdd=" + storeAdd + ", storePhone=" + storePhone + ", menu=" + menu + ", storeContent="
 					+ storeContent + ", storeHit=" + storeHit + "]";
 		}
-		
 }
+		

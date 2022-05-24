@@ -16,7 +16,7 @@ import kr.co.ict.service.StoreinfoDetailService;
 import kr.co.ict.service.StoreinfoInsertService;
 import kr.co.ict.service.StoreinfoListService;
 import kr.co.ict.service.StoreinfoUpdateFormService;
-import kr.co.ict.service.StoreinfoUpdateService;
+import kr.co.ict.service.StoreInfoUpdateService;
 
 
 
@@ -84,7 +84,7 @@ public class StoreController extends HttpServlet {
 			// 포워딩
 			ui = "/storeinfo/storeinfoUpdateForm.jsp";
 		}else if(uri.equals("/storeinfo/StoreInfoUpdate.do")) {
-			sv = new StoreinfoUpdateService();
+			sv = new StoreInfoUpdateService();
 			sv.execute(request, response);
 			// 리다이렉트(boardNum번 detail페이지로 이동.)
 			ui = "/getStoreInfoDetail.do?storeNum=" + request.getParameter("storeNum");

@@ -17,7 +17,7 @@ import kr.co.ict.domain.StoreInfoVO;
 /**
  * Servlet implementation class StroreInfoUpdateForm
  */
-@WebServlet("/StroreInfoUpdateForm")
+@WebServlet("/StoreInfoUpdateForm")
 public class StoreInfoUpdateForm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,12 +31,12 @@ public class StoreInfoUpdateForm extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String StoreNum = request.getParameter("storeNum");
+		String storeNum = request.getParameter("storeNum");
 		// 정수로 바꿔줘야함.
-		int storeNum = Integer.parseInt(StoreNum);
+		int StoreNum = Integer.parseInt(storeNum);
 		
 		StoreInfoDAO dao = StoreInfoDAO.getInstance();
-		StoreInfoVO storeinfo = dao.getstoreinfoDetail(storeNum);
+		StoreInfoVO storeinfo = dao.getstoreinfoDetail(StoreNum);
 	System.out.println(storeinfo);
 	// 바인딩해주세요.
 	request.setAttribute("storeinfo", storeinfo);
@@ -44,5 +44,4 @@ public class StoreInfoUpdateForm extends HttpServlet {
 	RequestDispatcher dp = request.getRequestDispatcher("/storeinfo/storeinfoUpdateForm.jsp");
 	dp.forward(request, response);
 	}
-
 }

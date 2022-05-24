@@ -17,7 +17,7 @@ ${storeinfo }
 	가게주소 :<input type="text" name="storeAdd" value="${storeinfo.storeAdd }"></br>
 	전화번호 :<input type="text" name="storePhone" value="${storeinfo.storePhone }"/></br>
 	영업시간 :<input type="text" name="storeTime" value="${ storeinfo.storeTime}"/></br>
-	
+
 	
 	<hr/>
 	<a href="http://localhost:8181/AteamFirstProject/getStoreInfoList.do"><button>목록</a></button><br/>
