@@ -96,10 +96,12 @@ public class userController extends HttpServlet {
 			sv = new UserBookmarkUpdateService();
 			sv.execute(request, response);
 			ui = "/firstProject/userBookmark.jsp";
-		} else if (uri.equals("/AteamFirstProject/userBookmarkDelete.user")) { // 문제코드
+		} else if (uri.equals("/AteamFirstProject/userBookmarkDelete.user")) {
 			sv = new UserBookmarkDeleteService();
 			sv.execute(request, response);
 			ui = "/firstProject/userBookmark.jsp";
+		} else if (uri.equals("/AteamFirstProject/userBookmarkDeleteForm.user")) {
+			ui = "/firstProject/userBookmarkDelete.jsp";
 		}
 		
 		RequestDispatcher dp = request.getRequestDispatcher(ui);

@@ -34,7 +34,7 @@
 					<td>${store.storePhone}</td>
 					<td>${store.menu}</td>
 					<td>
-						<form action="/AteamFirstProject/userBookmarkDelete.user" method="post">
+						<form action="/AteamFirstProject/userBookmarkDeleteForm.user" method="post">
 							<input type="hidden" name="storeNum" value="${store.storeNum}">
 							<input type="submit" value="삭제">
 						</form>
