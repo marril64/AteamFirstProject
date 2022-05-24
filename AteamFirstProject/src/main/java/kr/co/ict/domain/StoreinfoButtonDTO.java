@@ -1,6 +1,7 @@
 package kr.co.ict.domain;
 
 public class StoreinfoButtonDTO {
+	private final static int COUNT = 5;
 	private int storeinfoCount; //전체 글 개수
 	private int currentPage; //현재 조회중인 페이지
 	private int totalPages; // 전체 페이지 개수
@@ -23,12 +24,12 @@ public class StoreinfoButtonDTO {
 		} else {
 			//글이 있다면
 			// << 게시글 개수를 이용해 전체 페이지 개수 구하기(totalPages값 구하기)>>
-			if(storeinfoCount % 10 == 0) {
+			if(storeinfoCount % COUNT == 0) {
 				// 전체 글 개수 % 10이 0으로 떨어짐 => 10의 배수 갯수로 페이지 갯수는 10을 나눈 결과값
-				this.totalPages = this.storeinfoCount / 10;
+				this.totalPages = this.storeinfoCount / COUNT;
 			} else {
 				// 전체 글 개수 % 10이 0으로 떨어지지 않음
-				this.totalPages = (this.storeinfoCount / 10) + 1;
+				this.totalPages = (this.storeinfoCount / COUNT) + 1;
 			}// 페이지 개수 구하기 종료
 			
 			// << 현재 조회중인 페이지 그룹의 시작페이지 구하기(startPage값 구하기)>>
@@ -43,13 +44,13 @@ public class StoreinfoButtonDTO {
 				navNum = currentPage / 10;
 			}*/
 			
-			navNum = (((currentPage - 1) / 10) * 10) + 1; // 간소화 코드
+			navNum = (((currentPage - 1) / COUNT) * COUNT) + 1; // 간소화 코드
 			
 			// 시작페이지 구하기 완료
 			this.startPage = navNum;
 			
 			// <<현재 조회중인 페이지 그룹의 끝페이지 구하기(endPage값 구하기)>>
-			this.endPage = navNum + (10 - 1); 
+			this.endPage = navNum + (COUNT - 1); 
 			// 끝페이지 관련 보정(84페이지인데 90페이지로 나오는 경우...)
 			if(this.totalPages < this.endPage) {
 				this.endPage = this.totalPages;

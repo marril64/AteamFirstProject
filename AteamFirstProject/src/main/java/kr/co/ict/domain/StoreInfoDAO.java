@@ -42,15 +42,16 @@ public class StoreInfoDAO {
       try {
          con = ds.getConnection();   
          int pageSize = 6;
-         int num = (pageNum - 1) *10;
+         int num = (pageNum - 1) *pageSize;
          
          
          // 쿼리문 저장
          // PreparedStatement에 쿼리문 입력
-         String sql = "SELECT * FROM storeinfo ORDER BY storeNum DESC limit ?, 10;";
+         String sql = "SELECT * FROM storeinfo ORDER BY storeNum DESC limit ?, ?";
          // PreparedStatement에 쿼리문 입력
          pstmt = con.prepareStatement(sql);
          pstmt.setInt(1, num);
+         pstmt.setInt(2, pageSize);
          
          rs = pstmt.executeQuery();
          
@@ -232,7 +233,7 @@ public class StoreInfoDAO {
          
          try {
             con = ds.getConnection();
-            String sql = "UPDATE storeinfo SET hit = hit + 1 WHERE storeNum=?";
+            String sql = "UPDATE storeinfo SET storeHit = storeHit + 1 WHERE storeNum=?";
             pstmt = con.prepareStatement(sql);
             
             pstmt.setInt(1, bno);

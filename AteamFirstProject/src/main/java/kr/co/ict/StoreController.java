@@ -83,7 +83,7 @@ public class StoreController extends HttpServlet {
 			sv.execute(request, response);
 			// 포워딩
 			ui = "/storeinfo/storeinfoUpdateForm.jsp";
-		}else if(uri.equals("/storeinfo/StoreInfoUpdate.do")) {
+		}else if(uri.equals("/AteamFirstProject/StoreInfoUpdate.do")) {
 			sv = new StoreInfoUpdateService();
 			sv.execute(request, response);
 			// 리다이렉트(boardNum번 detail페이지로 이동.)
