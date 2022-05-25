@@ -25,11 +25,13 @@ public class StoreInfoUpdateService implements IStoreinfoService{
 		String storeAdd = request.getParameter("storeAdd");
 		String storePhone = request.getParameter("storePhone");
 		String menu = request.getParameter("menu");	
-		String time = storeStartTime + storeEndTime;
+		String time = storeStartTime + " ~ " +  storeEndTime;
 
 		if(id != null && id.equals("Admin")) {
 			dao.StoreInfoUpdate(storeName, storeContent, storeAdd, time, storePhone, menu, Storenum);
 		}
+		
+		request.setAttribute("storeNum", Storenum);
 
 	}
 		
