@@ -383,7 +383,7 @@ public class ProjectUserDAO {
 		
 		try {
 			con = ds.getConnection();
-			String sql = "DELETE FROM bookMark WHERE storeNum = ?;";
+			String sql = "DELETE FROM bookMark WHERE storeNum = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, storeNum);
 			pstmt.executeUpdate();
