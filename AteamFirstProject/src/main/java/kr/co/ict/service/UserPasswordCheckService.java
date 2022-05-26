@@ -34,7 +34,7 @@ public class UserPasswordCheckService implements IUserService {
 			request.setAttribute("e", "/firstProject/userUpdateSuccess.jsp");
 		} else {
 			System.out.println("비밀번호를 다시 입력해주십시오.");
-			request.setAttribute("e", "/firstProject/userInfo.jsp");
+			request.setAttribute("e", "/firstProject/userUpdateDeleteFail.jsp");
 		}
 		
 	}

@@ -33,8 +33,8 @@ public class UserUpdateService implements IUserService {
 			session.setAttribute("user", user);
 			request.setAttribute("d", "/firstProject/userUpdateSuccess.jsp");
 		} else {
-			System.out.println("로그인이 필요한 서비스입니다.");
-			request.setAttribute("d", "/AteamFirstProject/userLoginForm.user");
+			System.out.println("사실상 더미데이터.");
+			request.setAttribute("d", "/firstProject/userUpdateDeleteFail.jsp");
 		}
 		
 	}

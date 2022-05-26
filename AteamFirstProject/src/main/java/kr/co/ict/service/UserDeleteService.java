@@ -28,8 +28,8 @@ public class UserDeleteService implements IUserService {
 			System.out.println("세션을 파기합니다.");
 			request.setAttribute("c", "/firstProject/userDeleteSuccess.jsp");
 		} else {
-			System.out.println("아이디와 비밀번호를 다시 입력해 주십시오.");
-			request.setAttribute("c", "/firstProject/userInfo.jsp");
+			System.out.println("비밀번호를 다시 확인해 주십시오.");
+			request.setAttribute("c", "/firstProject/userUpdateDeleteFail.jsp");
 		}
 		
 	}
