@@ -21,15 +21,21 @@ public class UserBookmarkUpdateService implements IUserService {
 		String yes = request.getParameter("yes");
 		String no = request.getParameter("no");
 		int userNum = Integer.parseInt(request.getParameter("userNum"));
+		int storeNum = Integer.parseInt(request.getParameter("storeNum"));
 
 		if (yes != null) {
-			int storeNum = Integer.parseInt(request.getParameter("storeNum"));
-			dao.bookmarkUpdate(userNum, storeNum);
-			List<StoreInfoVO> store = dao.getUserBookmark(userNum);
-			request.setAttribute("store", store);
+			if (dao.bookmarkUpdate(userNum, storeNum)) {
+				List<StoreInfoVO> store = dao.getUserBookmark(userNum);
+				request.setAttribute("store", store);
+				request.setAttribute("f", "/firstProject/userBookmark.jsp");
+			} else {
+				request.setAttribute("storeNum", storeNum);
+				request.setAttribute("f", "/firstProject/userBookmarkFail.jsp");
+			}
+			
 		} else if (no != null) {
-			List<StoreInfoVO> store = dao.getUserBookmark(userNum);
-			request.setAttribute("store", store);
+			request.setAttribute("storeNum", storeNum);
+			request.setAttribute("f", "/AteamFirstProject/getStoreInfoDetail.do");
 		}
 		
 	}

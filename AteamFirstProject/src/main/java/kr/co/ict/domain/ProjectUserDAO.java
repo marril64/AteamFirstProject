@@ -341,7 +341,7 @@ public class ProjectUserDAO {
 		}
 	} // 유저 고유번호와 가게 고유번호로 즐겨찾기 삭제하는 기능
 	
-	public void bookmarkUpdate(int userNum, int storeNum) {
+	public Boolean bookmarkUpdate(int userNum, int storeNum) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -355,7 +355,7 @@ public class ProjectUserDAO {
 			rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
-				System.out.println("이미 즐겨찾기에 추가된 가게입니다. 사랑해주셔서 감사합니다.");
+				return false;
 			} else {
 				sql = "INSERT INTO bookMark VALUES (null, ?, ?)";
 				pstmt = con.prepareStatement(sql);
@@ -375,6 +375,8 @@ public class ProjectUserDAO {
 				e.printStackTrace();
 			}
 		}
+		
+		return true;
 	} // 유저 고유번호와 가게 고유번호로 즐겨찾기 추가하는 기능
 	
 	public void bookmarkAllDelete(int storeNum) {

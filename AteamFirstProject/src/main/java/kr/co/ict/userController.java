@@ -95,7 +95,7 @@ public class userController extends HttpServlet {
 		} else if (uri.equals("/AteamFirstProject/userBookmarkUpdate.user")) {
 			sv = new UserBookmarkUpdateService();
 			sv.execute(request, response);
-			ui = "/firstProject/userBookmark.jsp";
+			ui = (String)request.getAttribute("f");
 		} else if (uri.equals("/AteamFirstProject/userBookmarkDelete.user")) {
 			sv = new UserBookmarkDeleteService();
 			sv.execute(request, response);
