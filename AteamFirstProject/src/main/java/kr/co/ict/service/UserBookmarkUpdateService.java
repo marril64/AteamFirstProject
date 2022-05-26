@@ -34,8 +34,7 @@ public class UserBookmarkUpdateService implements IUserService {
 			}
 			
 		} else if (no != null) {
-			request.setAttribute("storeNum", storeNum);
-			request.setAttribute("f", "/AteamFirstProject/getStoreInfoDetail.do");
+			request.setAttribute("f", "/getStoreInfoDetail.do?storeNum=" + storeNum);
 		}
 		
 	}
