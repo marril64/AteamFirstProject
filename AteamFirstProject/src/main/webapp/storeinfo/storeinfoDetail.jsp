@@ -11,7 +11,7 @@
 ${storeinfo }
 	<h1>${storeinfo.storeNum}번 글 조회중입니다.</h1><br/>
 	
-	가게이름 :<input type="text" name="storeName" value="${storeinfo.storeName }"/>조회수 : ${board.hit}</br>
+	가게이름 :<input type="text" name="storeName" value="${storeinfo.storeName }"/>조회수 : ${storeinfo.storeHit}</br>
 	음식종류 :<input type="text" name="menu" value="${storeinfo.menu }"/></br>
 	소개:<textarea cols="50" rows="15" name="content">${storeinfo.storeContent }</textarea></br>
 	가게주소 :<input type="text" name="storeAdd" value="${storeinfo.storeAdd }"></br>

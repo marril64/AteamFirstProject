@@ -15,6 +15,7 @@ public class StoreinfoDetailService  implements IStoreinfoService {
 		StoreInfoDAO dao = StoreInfoDAO.getInstance();
 		String strStoreNum = request.getParameter("storeNum");
 		int storeNum = Integer.parseInt(strStoreNum);
+		System.out.println("가게번호는 바로! : " + storeNum);
 		dao.upHit(storeNum);
 		StoreInfoVO storeinfo = dao.getstoreinfoDetail(storeNum);
 		request.setAttribute("storeinfo", storeinfo);

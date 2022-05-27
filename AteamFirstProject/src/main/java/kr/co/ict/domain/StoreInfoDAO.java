@@ -58,9 +58,9 @@ public class StoreInfoDAO {
          while(rs.next()) {
             // 글 하나의 정보를 담을 수 있는 VO 생성
             StoreInfoVO storeinfo = new StoreInfoVO();
-            System.out.println("여기까지는 정상");
+            
             // 디버깅으로 비어있는것 확인
-            System.out.println("집어넣기 전 : " + storeinfoList);
+            // System.out.println("집어넣기 전 : " + storeinfoList);
             // setter로 다 집어넣기
             // int를 받아올때는 rs.getInt(), Date를 받아올때는 getDate()를 씁니다.
             storeinfo.setStoreNum(rs.getInt(1));
@@ -74,11 +74,11 @@ public class StoreInfoDAO {
             
             
             // 다 집어넣은 후 디버깅
-            System.out.println("집어넣은 후 : " + storeinfo);
+            // System.out.println("집어넣은 후 : " + storeinfo);
             // userList에 쌓기
             storeinfoList.add(storeinfo);
          }
-         System.out.println("리스트에 쌓인 자료 체크 : " + storeinfoList);
+         // System.out.println("리스트에 쌓인 자료 체크 : " + storeinfoList);
       } catch(Exception e) {
          e.printStackTrace();
       } finally {
@@ -144,7 +144,7 @@ public class StoreInfoDAO {
 	      try {
 	         con = ds.getConnection();
 	         
-	         String sql = "INSERT INTO storeinfo (storeName,storeContent,storeAdd, storeTime, storePhone,storeNum, menu, storeHit ) VALUES (?, ?, ?, ?, ?, null, ?, null)";
+	         String sql = "INSERT INTO storeinfo (storeName,storeContent,storeAdd, storeTime, storePhone,storeNum, menu, storeHit ) VALUES (?, ?, ?, ?, ?, null, ?, 0)";
 	         pstmt = con.prepareStatement(sql);
 	         // ? 채우기
 	         pstmt.setString(1, storeName);
@@ -230,10 +230,10 @@ public class StoreInfoDAO {
       public void upHit(int bno) {
          Connection con = null;
          PreparedStatement pstmt = null;
-         
+         System.out.println("조회수가 1 증가되었습니다.");
          try {
             con = ds.getConnection();
-            String sql = "UPDATE storeinfo SET storeHit = storeHit + 1 WHERE storeNum=?";
+            String sql = "UPDATE storeinfo SET storeHit = storeHit + 1 WHERE storeNum = ?";
             pstmt = con.prepareStatement(sql);
             
             pstmt.setInt(1, bno);
