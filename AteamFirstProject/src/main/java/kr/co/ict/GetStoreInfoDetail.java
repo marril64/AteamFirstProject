@@ -41,6 +41,8 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		System.out.println("조회예정인 글번호 : " + storeNum);
 		// DAO를 생성하세요.
 		StoreInfoDAO dao = StoreInfoDAO.getInstance();
+		
+		dao.upHit(storeNum);
 		// DAO에서 호출한 디테일 글 정보를 저장해주세요.
 		StoreInfoVO storeinfo = dao.getstoreinfoDetail(storeNum);
 		// 얻어온 글 정보를 디버깅해주세요.
