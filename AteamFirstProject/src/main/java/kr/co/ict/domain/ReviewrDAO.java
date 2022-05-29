@@ -198,4 +198,27 @@ public class ReviewrDAO {
 			}
 		}
 	}
+	public void upHit(int bno) {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        
+        try {
+           con = ds.getConnection();
+           String sql = "UPDATE review SET Hit = Hit + 1 WHERE reviewNum=?";
+           pstmt = con.prepareStatement(sql);
+           
+           pstmt.setInt(1, bno);
+           
+           pstmt.executeUpdate();
+        } catch(Exception e) {
+           e.printStackTrace();
+        } finally {
+           try {
+              con.close();
+              pstmt.close();
+           } catch(Exception e) {
+              e.printStackTrace();
+           }
+        }
+     }
 }

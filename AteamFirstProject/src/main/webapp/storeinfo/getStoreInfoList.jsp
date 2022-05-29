@@ -78,6 +78,7 @@
 		<c:if test="${sessionScope.user.id eq 'Admin'}">	
 			<a href="http://localhost:8181/AteamFirstProject/storeinfo/storeinfoInsertForm.jsp"><button>글쓰기</button></a>
 		</c:if>
+		<a href="http://localhost:8181/AteamFirstProject/getreviewrlist"><button>리뷰보러가기</a></button><br/>
 	</div><!-- div.container -->
 </body>
 </html>

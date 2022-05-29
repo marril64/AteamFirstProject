@@ -39,6 +39,11 @@
 				</c:forEach>
 			</tbody>
 	</table>
+	<div class="btn-group" role="group" aria-label="fifth group">
+			<form action="/AteamFirstProject/getStoreInfoList.do" method="post">
+				<input type="submit" value="목록으로 돌아가기">
+			</form>
+		</div>
 
 </body>
 </html>
