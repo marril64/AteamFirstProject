@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:if test="${sessionScope.user.id eq null }">
-	<% //response.sendRedirect("http://localhost:8181/AteamFirstProject/userLoginForm"); %>
 	<% response.sendRedirect("http://localhost:8181/AteamFirstProject/getstoreinfoList.do"); %>
 </c:if>    
 <!DOCTYPE html>
@@ -12,7 +11,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-${storeinfo}<hr/>
 <form action="http://localhost:8181/AteamFirstProject/StoreInfoUpdate.do" method="post">
 
 <input type="hidden" name="storeNum" value="${storeinfo.storeNum}">

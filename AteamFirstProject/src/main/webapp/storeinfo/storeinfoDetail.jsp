@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-${storeinfo }
 	<h1>${storeinfo.storeNum}번 글 조회중입니다.</h1><br/>
 	
 	가게이름 :<input type="text" name="storeName" value="${storeinfo.storeName }"/>조회수 : ${storeinfo.storeHit}</br>

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-세션값 : ${sessionScope.user.id}<br/>
 <c:if test="${sessionScope.user.id eq null}">
 	<% response.sendRedirect("http://localhost:8181/AteamFirstProject/userLoginForm.user"); %>
 </c:if>
