@@ -43,8 +43,11 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<form action="http://localhost:8181/AteamFirstProject/userLoginForm.user" method="post">
-		<input type="submit" value="돌아가기">
+	<form action="/AteamFirstProject/userLoginForm.user" method="post">
+		<input type="submit" value="회원정보">
+	</form>
+	<form action="/AteamFirstProject/getStoreInfoList.do" method="post">
+		<input type="submit" value="목록으로 돌아가기">
 	</form>
 </body>
 </html>
