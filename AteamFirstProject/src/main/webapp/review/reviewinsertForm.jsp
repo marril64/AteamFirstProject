@@ -15,6 +15,5 @@
 별점 :<input type="number" min="0" max="5" name="score"></br>
 <input type="submit" value="제출"/>
 <input type="reset" value="초기화"/>
-
 </body>
 </html>

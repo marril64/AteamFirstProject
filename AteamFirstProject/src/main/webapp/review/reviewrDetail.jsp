@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-${reviewr}
 	<h1>${reviewr.reviewNum}번 글 조회중입니다.</h1><br/>
 	리뷰 번호 <input type="text" value="${reviewr.reviewNum }">조회수 : ${reviewr.hit}</br>
 	글 번호 <input type="text" value="${reviewr.boardNum }">
