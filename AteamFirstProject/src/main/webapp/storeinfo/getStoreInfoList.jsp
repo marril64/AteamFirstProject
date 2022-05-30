@@ -35,8 +35,8 @@
 	  <ul id="nav3" class="nav justify-content-end bg-light">
 
 	 	<li>
-	 		<a href="/AteamFirstProject/userLoginForm.user">로그인</a>
-	 	</li></br>
+	 		<a href="/AteamFirstProject/userLoginForm.user" style="margin-right:10px;">로그인</a>
+	 	</li>
 	 	<li>
 	 		<a href="http://localhost:8181/AteamFirstProject/userJoinForm.user">회원가입</a>
 	 	</li>
