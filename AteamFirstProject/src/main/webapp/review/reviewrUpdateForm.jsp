@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-${reviewr}<hr/>
 <form action="http://localhost:8181/AteamFirstProject/reviewrupdate" method="post">
 번호 : <input type="text" name="reviewNum" readonly value="${reviewr.reviewNum}"><br/>
 글쓴이 :<input type="text" name="ruser" readonly value="${reviewr.ruser }"/></br>

@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>/ReviewrList 로 연결된 임시페이지입니다.</h1>
+<h1>리뷰</h1>
 	<table border="1">
 		<thead>
 			<tr>
