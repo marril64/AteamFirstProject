@@ -15,8 +15,8 @@
 <body>
 <header id="header-wrap" class="div-cont">
 	<div id = "header">
-		<a href="/" class="m_logo">
-			<img src="file:///C:/eclipse2/workspace_prj/AteamFirstProject/src/main/webapp/storeinfo/제목을%20입력해주세요_-001%20(1).png" alt="맛EAT썰">
+		<a href="http://localhost:8181/AteamFirstProject/getStoreInfoList.do" class="m_logo">
+			<img src="http://localhost:8181/AteamFirstProject/storeinfo/title.png" width=150px; alt="맛EAT썰">
 		</a>
 	 <div id="serch_cont">
 	 	<from method="GET" action="/search.jsp" id= "frm-search">
@@ -24,7 +24,7 @@
 	 		<input type = "hidden" name="lng" value>
 	 		<div id="m_search">
 	 		<input id="txt_keyword" name="query" placeholder="음식 또는 식당명 입력" type="text" value autocomplete="off" maxlength="40">
-	 		<img id="closeSearch" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAC4jAAAuIwF4pT92AAAFAElEQVRogd3bW6hUdRTH8c8ZDxllSpBhpFg9WPmQdDO01FIsooKuhpbHS4YvFtVDT9VLL0H1EEJQYeaF5BQalBRFqNnRLlLZjaIbqSiCkWb5oB49PawZzjjObd+my/flzPz3zNq/H7P3f6+1/v/T1dfXpyBG4GpcigkYizEYhjMwgAP4E/vwC77BZ9hSPpY7XTkbHoO7cQeuxJCUcY7hU6zDa9iZizr5GO7CTDyEG1DKGrCG43gHT+ODrMGyipuJj/EubswhXj1KuAmbsBnXZg2WhjF4A+9hYhYBCZmCjViNc9IESGN4rphcbk1zwpy4B9/hrqRfTGJ4KF7BSgxPeqICGCEmtKU4pd0vtWv4LGzAvOS6CmcJ3haPupa0Y3iUmB0nZxBVNDPEvT2y1QdbGR4pZsfx2TUVzuVYLy71hjQzfBrewoU5iiqaiSJZaXhPNzO8FFflragDTMezjQ42MjwPCwuR0xmWiPT2JOoZHo3nCpXTGV4SE+4J1DP8vBY3/n+EM/FM7WCt4Rm4pSNyOsMcTK0eqDX8VOe0dIQuPFk9UG14Jq7IEHxAVDPL8XOGOBV+KsfakjHOVFF04ETDD2cIOiAS+Wlidr9YVDRpWVGOsRDXYFGGWPBo5UXF8ChcnyHgRqyten8U80WhkZTlwmh/1dgyfJJWnKjVRzNoeLb07RjYXWfsmBCexPRy8Wser3PsxxS6KgzBLAYNJ64ra5iifjqXxHQzs0NV3YcpuY0wPEw03LJwnrjs6l0l7ZhuZnaIuKfHZpNoEkaURCu1O2MwuBcvS266ldlVohOalSGYVJJvndsjmel2zM7OUd+EbvnXuj3lvwuFyWoqpgeEyWZmV8rXLFzUjQtyDkpr0/cZNF1LxeycAnSN68bZBQSmtel6FGkWRpe02fxKSbN7upaizVKepYsuBXs0fmRV6IRZyoY7wXFxzzajv8XxPOgv4UjBJ2n26KmQJg1Nw6ESfi/wBO2YrdAJ0wdL6if+edAqqWiWnKwqSNOuknyK9VpamV2peUa2QDGmd3Tj25yDtmO2ejZu9JxeUH49N0dtX5awLceASc22yr3z/qW/KIkV/EaZTxJWSGa2Qjum1+Sg7yi2lrBfbCDJwm4slj43bmV6Pn7NpJCP8Fcl8ejNGGwbDtcZT5JBNTN9BB+mVhesY7DF0yvbZT1e9ICrSZMuNjN9fjppCG+9DBreK3bipGUcHq+Kd6po06bJjXvE1orqHtn9ol2blvXC4wn7tKaJxe8sfC82m0xSZyErITtEY3+c7Mu21yl7q92YtlWI/T/Rp8HKAzzRWS0d4bHqN7WG38ebndNSOL1qtivWq4eX4I+OyCmWA3ikdrCe4V0iifivsxh7agcbdTx68WKhcorlBbFL7ySatXgekG3F7p9iAx5sdLCZ4SO4GV/nrahAtuN2TdpWrZp4v4l14+25SSqOr4TWphNuO13LvSIL25iDqKLYKDTua/XBdtu0B8Uq+rIMoopimdB2oJ0PJ+lLHxYF/lz/juf0frFRfJH6pWld0jTiV4tycI3WzfWiWFvW8GrSL6ZdedgjSr/psm8rSsJWca/eqVzuJSXrUssmUadOETl4Hr2xWo6WY08TuxU2ZwmWx1YHogTrE0uvs8QmmckZ4veLX/N1kfW1nH3bJe//TKtmuDB9GS4RG1/OFZs+Ty9/5pCYfHbiB7E16XNh9mARov4G+bUgkzuhJHIAAAAASUVORK5CYII=" style="display: none;">
+	 		<img id="closeSearch" src="http://localhost:8181/AteamFirstProject/storeinfo/btn_h_sch.png" style="display: none;">
 	 		<button type="submit"></button>
 	 		<div id="div_search" class="search-info"></div>
 	 		</div>	
@@ -75,7 +75,7 @@
 			</tbody>
 	</table>
 	
-	${buttons}<br/>
+	<br/>
 	
 	<ul class="pagination justify-content-center">		
 			<c:if test="${buttons.startPage ne 1}">
