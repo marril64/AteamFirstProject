@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	
 <c:if test="${sessionScope.user.id eq null}">
 	<% //response.sendRedirect("http://localhost:8181/AteamFirstProject/userLoginForm.user"); %>
 </c:if>
@@ -18,8 +19,8 @@
 		<a href="http://localhost:8181/AteamFirstProject/getStoreInfoList.do" class="m_logo">
 			<img src="http://localhost:8181/AteamFirstProject/storeinfo/title.png" width=150px; alt="맛EAT썰">
 		</a>
-	 <div id="serch_cont">
-	 	<from method="GET" action="/search.jsp" id= "frm-search">
+	<!--  <div id="serch_cont">
+	 	<from method="GET" action="/btn_h_sch.png" id= "frm-search">
 	 		<input type = "hidden" name="lat" value>
 	 		<input type = "hidden" name="lng" value>
 	 		<div id="m_search">
@@ -29,15 +30,18 @@
 	 		<div id="div_search" class="search-info"></div>
 	 		</div>	
 	 	</from>
-	 </div>
-	 <ul class="t-gnb">
+	 </div> -->
+	 
+	  <ul id="nav3" class="nav justify-content-end bg-light">
+
 	 	<li>
 	 		<a href="/AteamFirstProject/userLoginForm.user">로그인</a>
-	 	</li>
+	 	</li></br>
 	 	<li>
 	 		<a href="http://localhost:8181/AteamFirstProject/userJoinForm.user">회원가입</a>
 	 	</li>
 	 </ul>
+	
 	 </div>
 </header>
 <div class="container">
