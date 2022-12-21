@@ -11,6 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.ict.domain.*;
+import kr.co.ict.service.Test2DeleteService;
+import kr.co.ict.service.Test2ExcelService;
+import kr.co.ict.service.Test2FormService;
+import kr.co.ict.service.Test2GenderService;
+import kr.co.ict.service.Test2SearchService;
+import kr.co.ict.service.Test2Service;
+import kr.co.ict.service.Test2UpdateService;
 
 /**
  * Servlet implementation class BoardController
@@ -41,10 +48,18 @@ public class Test2Controller extends HttpServlet {
 		Test2DAO dao = Test2DAO.getInstance();
 		Test2Service sv = null;
 		
+		String tNum = request.getParameter("tNum");
+		String tId = request.getParameter("tId");
+		String tName = request.getParameter("tName");
+		String tGender = request.getParameter("tGender");
+		String tCountry = request.getParameter("tCountry");
+		String tCity = request.getParameter("tCity");
+		
+		
 		if (uri.equals("/AteamFirstProject/firstProject/test2.test2")) {
 			sv = new Test2FormService();
 			sv.execute(request, response);
-			ui = "/firstProject/test2.jsp";
+			ui = "/firstProject/gender.test2?tGender=";
 		} else if (uri.equals("/AteamFirstProject/firstProject/update.test2")) {
 			sv = new Test2UpdateService();
 			sv.execute(request, response);
@@ -59,6 +74,10 @@ public class Test2Controller extends HttpServlet {
 			ui = "/firstProject/test2.jsp";
 		} else if (uri.equals("/AteamFirstProject/firstProject/search.test2")) {
 			sv = new Test2SearchService();
+			sv.execute(request, response);
+			ui = "/firstProject/test2.jsp?tNum=" + tNum + "&tId=" + tId + "&tName=" + tName + "&tGender=" + tGender + "&tCountry" + tCountry + "&tCity" + tCity;
+		} else if (uri.equals("/AteamFirstProject/firstProject/gender.test2")) {
+			sv = new Test2GenderService();
 			sv.execute(request, response);
 			ui = "/firstProject/test2.jsp";
 		}

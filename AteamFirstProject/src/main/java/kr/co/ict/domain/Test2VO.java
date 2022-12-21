@@ -59,7 +59,7 @@ public class Test2VO {
 
 	@Override
 	public String toString() {
-		return "Test1VO [tNum=" + tNum + ", tId=" + tId + ", tName=" + tName + ", tGender=" + tGender + ", tCountry="
+		return "Test2VO [tNum=" + tNum + ", tId=" + tId + ", tName=" + tName + ", tGender=" + tGender + ", tCountry="
 				+ tCountry + ", tCity=" + tCity + "]";
 	}
 	

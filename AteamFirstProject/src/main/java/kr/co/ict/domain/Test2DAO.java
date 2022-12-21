@@ -2,6 +2,7 @@ package kr.co.ict.domain;
 
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -12,6 +13,8 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import org.apache.catalina.connector.Response;
+
+import com.mysql.cj.xdevapi.Statement;
 
 public class Test2DAO {
 
@@ -35,20 +38,25 @@ public class Test2DAO {
 		return dao;
 	}
 	
-	public List<Test2VO> test1List() {
+	String url = "jdbc:oracle:thin:@localhost:1521/XEPDB1";
+	String id = "c##mydata";
+	String password = "halfspace";
+	
+	public List<Test2VO> test2List() {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<Test2VO> userList = new ArrayList<>();
 		
-		try {
-			con = ds.getConnection();
-			String sql = "SELECT * FROM test1 ORDER BY tNum DESC";
+		try{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, id, password);
+			String sql = "SELECT * FROM test2";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				Test1VO user = new Test1VO();
+				Test2VO user = new Test2VO();
 				
 				user.settNum(rs.getInt(1));
 				user.settId(rs.getString(2));
@@ -59,7 +67,6 @@ public class Test2DAO {
 				
 				userList.add(user);
 			}
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -76,15 +83,16 @@ public class Test2DAO {
 	
 	
 	
-	public Boolean test1Update(int tNum, String tId, String tName, String tGender, String tCountry, String tCity) {
+	public Boolean test2Update(int tNum, String tId, String tName, String tGender, String tCountry, String tCity) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		Boolean check = null;
 		
 		try {
-			con = ds.getConnection();
-			String idCheck = "SELECT * FROM test1 WHERE tId = ?";
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, id, password);
+			String idCheck = "SELECT * FROM test2 WHERE tId = ?";
 			pstmt = con.prepareStatement(idCheck);
 			pstmt.setString(1, tId);
 			rs = pstmt.executeQuery();
@@ -92,7 +100,7 @@ public class Test2DAO {
 			if (rs.next()) {
 				check = false;
 			} else {
-				String sql = "UPDATE test1 SET tId = ?, tName = ?, tGender = ?, tCountry = ?, tCity = ? WHERE tNum in (?)";
+				String sql = "UPDATE test2 SET tId = ?, tName = ?, tGender = ?, tCountry = ?, tCity = ? WHERE tNum in (?)";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, tId);
 				pstmt.setString(2, tName);
@@ -118,15 +126,16 @@ public class Test2DAO {
 		return check;
 	} // 업데이트
 	
-	public Boolean test1Join(String tId, String tName, String tGender, String tCountry, String tCity) {
+	public Boolean test2Join(String tId, String tName, String tGender, String tCountry, String tCity) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		Boolean check = null;
 		
 		try {
-			con = ds.getConnection();
-			String idCheck = "SELECT * FROM test1 WHERE tId = ?";
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, id, password);
+			String idCheck = "SELECT * FROM test2 WHERE tId = ?";
 			pstmt = con.prepareStatement(idCheck);
 			pstmt.setString(1, tId);
 			rs = pstmt.executeQuery();
@@ -134,7 +143,7 @@ public class Test2DAO {
 			if (rs.next()) {
 				check = false;
 			} else {
-				String insert = "INSERT INTO test1 (tId, tName, tGender, tCountry, tCity) VALUES (?, ?, ?, ?, ?)";
+				String insert = "INSERT INTO test2 (tNum, tId, tName, tGender, tCountry, tCity) VALUES (testNum.nextval, ?, ?, ?, ?, ?)";
 				pstmt = con.prepareStatement(insert);
 				
 				pstmt.setString(1, tId);
@@ -161,15 +170,16 @@ public class Test2DAO {
 		return check;
 	} // 추가
 	
-	public void test1Delete(ArrayList<Integer> tNum) {
+	public void test2Delete(ArrayList<Integer> tNum) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		
 		try {
-			con = ds.getConnection();
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, id, password);
 			
 			for (int num : tNum) {
-				String sql = "DELETE FROM test1 WHERE tNum in (?)";
+				String sql = "DELETE FROM test2 WHERE tNum in (?)";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, num);
 				pstmt.executeUpdate();
@@ -187,18 +197,19 @@ public class Test2DAO {
 		}
 	} // 삭제
 	
-	public List<Test1VO> test1SearchAll(String tId, String tName, String tGender, String tCity, String date1, String date2) {
+	public List<Test2VO> test2SearchAll(String tId, String tName, String tGender, String tCity, String date1, String date2) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		List<Test1VO> userList = new ArrayList<>();
+		List<Test2VO> userList = new ArrayList<>();
 		
 		try {
-			con = ds.getConnection();
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, id, password);
 			String check;
 			
 			if (tId != "" && tName != "" && tGender != null && !tCity.equals("국가를 선택해주십시오.") && (date1 != "" || date2 != "")) {
-				check = "SELECT * FROM test1 WHERE tId = ? AND tName = ? AND tGender = ? AND tCity = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC;";
+				check = "SELECT * FROM test2 WHERE tId = ? AND tName = ? AND tGender = ? AND tCity = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC";
 				pstmt = con.prepareStatement(check);
 				pstmt.setString(1, tId);
 				pstmt.setString(2, tName);
@@ -211,7 +222,7 @@ public class Test2DAO {
 			
 			if (tGender == null || tGender.equals("회원 전체보기")) {
 				if (tId == "") {
-					check = "SELECT * FROM test1 WHERE tName = ? AND tCity = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC;";
+					check = "SELECT * FROM test2 WHERE tName = ? AND tCity = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC";
 					pstmt = con.prepareStatement(check);
 					pstmt.setString(1, tName);
 					pstmt.setString(2, tCity);
@@ -219,51 +230,51 @@ public class Test2DAO {
 					pstmt.setString(4, date2);
 					rs = pstmt.executeQuery();
 					if (tName == "") {
-						check = "SELECT * FROM test1 WHERE tCity = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC;";
+						check = "SELECT * FROM test2 WHERE tCity = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC";
 						pstmt = con.prepareStatement(check);
 						pstmt.setString(1, tCity);
 						pstmt.setString(2, date1);
 						pstmt.setString(3, date2);
 						rs = pstmt.executeQuery();
 						if (tCity.equals("국가를 선택해주십시오.")) {
-							check = "SELECT * FROM test1 WHERE (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC;"; // 시간
+							check = "SELECT * FROM test2 WHERE (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC"; // 시간
 							pstmt = con.prepareStatement(check);
 							pstmt.setString(1, date1);
 							pstmt.setString(2, date2);
 							rs = pstmt.executeQuery();
 							if (date1 == "" || date2 == "") {
-								check = "SELECT * FROM test1 ORDER BY tNum DESC;"; // 성별 전체
+								check = "SELECT * FROM test2 ORDER BY tNum DESC"; // 성별 전체
 								pstmt = con.prepareStatement(check);
 								rs = pstmt.executeQuery();
 							}
 						} else if (date1 == "" || date2 == "") {
-							check = "SELECT * FROM test1 WHERE tCity = ? ORDER BY tNum DESC;"; // 도시
+							check = "SELECT * FROM test2 WHERE tCity = ? ORDER BY tNum DESC"; // 도시
 							pstmt = con.prepareStatement(check);
 							pstmt.setString(1, tCity);
 							rs = pstmt.executeQuery();
 						}
 					} else if (tCity.equals("국가를 선택해주십시오.")) {
-						check = "SELECT * FROM test1 WHERE tName = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC;";
+						check = "SELECT * FROM test2 WHERE tName = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC";
 						pstmt = con.prepareStatement(check);
 						pstmt.setString(1, tName);
 						pstmt.setString(2, date1);
 						pstmt.setString(3, date2);
 						rs = pstmt.executeQuery();
 						if (date1 == "" || date2 == "") {
-							check = "SELECT * FROM test1 WHERE tName = ? ORDER BY tNum DESC;"; // 이름
+							check = "SELECT * FROM test2 WHERE tName = ? ORDER BY tNum DESC"; // 이름
 							pstmt = con.prepareStatement(check);
 							pstmt.setString(1, tName);
 							rs = pstmt.executeQuery();
 						}
 					} else if (date1 == "" || date2 == "") {
-						check = "SELECT * FROM test1 WHERE tName = ? AND tCity = ? ORDER BY tNum DESC;";
+						check = "SELECT * FROM test2 WHERE tName = ? AND tCity = ? ORDER BY tNum DESC";
 						pstmt = con.prepareStatement(check);
 						pstmt.setString(1, tName);
 						pstmt.setString(2, tCity);
 						rs = pstmt.executeQuery();
 					}
 				} else if (tName == "") {
-					check = "SELECT * FROM test1 WHERE tId = ? AND tCity = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC;";
+					check = "SELECT * FROM test2 WHERE tId = ? AND tCity = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC";
 					pstmt = con.prepareStatement(check);
 					pstmt.setString(1, tId);
 					pstmt.setString(2, tCity);
@@ -271,27 +282,27 @@ public class Test2DAO {
 					pstmt.setString(4, date2);
 					rs = pstmt.executeQuery();
 					if (tCity.equals("국가를 선택해주십시오.")) {
-						check = "SELECT * FROM test1 WHERE tId = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC;";
+						check = "SELECT * FROM test2 WHERE tId = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC";
 						pstmt = con.prepareStatement(check);
 						pstmt.setString(1, tId);
 						pstmt.setString(2, date1);
 						pstmt.setString(3, date2);
 						rs = pstmt.executeQuery();
 						if (date1 == "" || date2 == "") {
-							check = "SELECT * FROM test1 WHERE tId = ? ORDER BY tNum DESC;"; // 아이디
+							check = "SELECT * FROM test2 WHERE tId = ? ORDER BY tNum DESC"; // 아이디
 							pstmt = con.prepareStatement(check);
 							pstmt.setString(1, tId);
 							rs = pstmt.executeQuery();
 						}
 					} else if (date1 == "" || date2 == "") {
-						check = "SELECT * FROM test1 WHERE tId = ? AND tCity = ? ORDER BY tNum DESC;";
+						check = "SELECT * FROM test2 WHERE tId = ? AND tCity = ? ORDER BY tNum DESC";
 						pstmt = con.prepareStatement(check);
 						pstmt.setString(1, tId);
 						pstmt.setString(2, tCity);
 						rs = pstmt.executeQuery();
 					}
 				} else if (tCity.equals("국가를 선택해주십시오.")) {
-					check = "SELECT * FROM test1 WHERE tId = ? AND tName = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC;";
+					check = "SELECT * FROM test2 WHERE tId = ? AND tName = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC";
 					pstmt = con.prepareStatement(check);
 					pstmt.setString(1, tId);
 					pstmt.setString(2, tName);
@@ -299,14 +310,14 @@ public class Test2DAO {
 					pstmt.setString(4, date2);
 					rs = pstmt.executeQuery();
 					if (date1 == "" || date2 == "") {
-						check = "SELECT * FROM test1 WHERE tId = ? AND tName = ? ORDER BY tNum DESC;";
+						check = "SELECT * FROM test2 WHERE tId = ? AND tName = ? ORDER BY tNum DESC";
 						pstmt = con.prepareStatement(check);
 						pstmt.setString(1, tId);
 						pstmt.setString(2, tName);
 						rs = pstmt.executeQuery();
 					}
 				} else if (date1 == "" || date2 == "") {
-					check = "SELECT * FROM test1 WHERE tId = ? AND tName = ? AND tCity = ? ORDER BY tNum DESC;";
+					check = "SELECT * FROM test2 WHERE tId = ? AND tName = ? AND tCity = ? ORDER BY tNum DESC";
 					pstmt = con.prepareStatement(check);
 					pstmt.setString(1, tId);
 					pstmt.setString(2, tName);
@@ -315,7 +326,7 @@ public class Test2DAO {
 				}
 			} else if (tGender.equals("남") || tGender.equals("여")) {
 				if (tId == "") {
-					check = "SELECT * FROM test1 WHERE tName = ? AND tGender = ? AND tCity = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC;";
+					check = "SELECT * FROM test2 WHERE tName = ? AND tGender = ? AND tCity = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC";
 					pstmt = con.prepareStatement(check);
 					pstmt.setString(1, tName);
 					pstmt.setString(2, tGender);
@@ -324,27 +335,27 @@ public class Test2DAO {
 					pstmt.setString(5, date2);
 					rs = pstmt.executeQuery();
 					if (tCity.equals("국가를 선택해주십시오.")) {
-						check = "SELECT * FROM test1 WHERE tGender = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC;";
+						check = "SELECT * FROM test2 WHERE tGender = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC";
 						pstmt = con.prepareStatement(check);
 						pstmt.setString(1, tGender);
 						pstmt.setString(2, date1);
 						pstmt.setString(3, date2);
 						rs = pstmt.executeQuery();
 						if (date1 == "" || date2 == "") {
-							check = "SELECT * FROM test1 WHERE tGender = ? ORDER BY tNum DESC;"; // 성별 구분
+							check = "SELECT * FROM test2 WHERE tGender = ? ORDER BY tNum DESC"; // 성별 구분
 							pstmt = con.prepareStatement(check);
 							pstmt.setString(1, tGender);
 							rs = pstmt.executeQuery();
 						}
 					} else if (date1 == "" || date2 == "") {
-						check = "SELECT * FROM test1 WHERE tGender = ? AND tCity = ? ORDER BY tNum DESC;";
+						check = "SELECT * FROM test2 WHERE tGender = ? AND tCity = ? ORDER BY tNum DESC";
 						pstmt = con.prepareStatement(check);
 						pstmt.setString(1, tGender);
 						pstmt.setString(2, tCity);
 						rs = pstmt.executeQuery();
 					}
 				} else if (tCity.equals("국가를 선택해주십시오.")) {
-					check = "SELECT * FROM test1 WHERE tId = ? AND tName = ? AND tGender = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC;";
+					check = "SELECT * FROM test2 WHERE tId = ? AND tName = ? AND tGender = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC";
 					pstmt = con.prepareStatement(check);
 					pstmt.setString(1, tId);
 					pstmt.setString(2, tName);
@@ -353,7 +364,7 @@ public class Test2DAO {
 					pstmt.setString(5, date2);
 					rs = pstmt.executeQuery();
 					if (date1 == "" || date2 == "") {
-						check = "SELECT * FROM test1 WHERE tId = ? AND tName = ? AND tGender = ? ORDER BY tNum DESC;";
+						check = "SELECT * FROM test2 WHERE tId = ? AND tName = ? AND tGender = ? ORDER BY tNum DESC";
 						pstmt = con.prepareStatement(check);
 						pstmt.setString(1, tId);
 						pstmt.setString(2, tName);
@@ -361,14 +372,14 @@ public class Test2DAO {
 						rs = pstmt.executeQuery();
 					}
 				} else if (date1 == "" || date2 == "") {
-					check = "SELECT * FROM test1 WHERE tName = ? AND tGender = ? AND tCity = ? ORDER BY tNum DESC;";
+					check = "SELECT * FROM test2 WHERE tName = ? AND tGender = ? AND tCity = ? ORDER BY tNum DESC";
 					pstmt = con.prepareStatement(check);
 					pstmt.setString(1, tName);
 					pstmt.setString(2, tGender);
 					pstmt.setString(3, tCity);
 					rs = pstmt.executeQuery();
 				} else if (tName == "") {
-					check = "SELECT * FROM test1 WHERE tId = ? AND tGender = ? AND tCity = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC;";
+					check = "SELECT * FROM test2 WHERE tId = ? AND tGender = ? AND tCity = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC";
 					pstmt = con.prepareStatement(check);
 					pstmt.setString(1, tId);
 					pstmt.setString(2, tGender);
@@ -377,7 +388,7 @@ public class Test2DAO {
 					pstmt.setString(5, date2);
 					rs = pstmt.executeQuery();
 					if (tCity.equals("국가를 선택해주십시오.")) {
-						check = "SELECT * FROM test1 WHERE tId = ? AND tGender = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC;";
+						check = "SELECT * FROM test2 WHERE tId = ? AND tGender = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC";
 						pstmt = con.prepareStatement(check);
 						pstmt.setString(1, tId);
 						pstmt.setString(2, tGender);
@@ -385,14 +396,14 @@ public class Test2DAO {
 						pstmt.setString(4, date2);
 						rs = pstmt.executeQuery();
 						if (date1 == "" || date2 == "") {
-							check = "SELECT * FROM test1 WHERE tId = ? AND tGender = ? ORDER BY tNum DESC;";
+							check = "SELECT * FROM test2 WHERE tId = ? AND tGender = ? ORDER BY tNum DESC";
 							pstmt = con.prepareStatement(check);
 							pstmt.setString(1, tId);
 							pstmt.setString(2, tGender);
 							rs = pstmt.executeQuery();
 						}
 					} else if (date1 == "" || date2 == "") {
-						check = "SELECT * FROM test1 WHERE tId = ? AND tGender = ? AND tCity = ? ORDER BY tNum DESC;";
+						check = "SELECT * FROM test2 WHERE tId = ? AND tGender = ? AND tCity = ? ORDER BY tNum DESC";
 						pstmt = con.prepareStatement(check);
 						pstmt.setString(1, tId);
 						pstmt.setString(2, tGender);
@@ -400,7 +411,7 @@ public class Test2DAO {
 						rs = pstmt.executeQuery();
 					}
 				} else if (tCity.equals("국가를 선택해주십시오.")) {
-					check = "SELECT * FROM test1 WHERE tId = ? AND tName = ? AND tGender = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC;";
+					check = "SELECT * FROM test2 WHERE tId = ? AND tName = ? AND tGender = ? AND (tJoin BETWEEN ? AND ?) ORDER BY tNum DESC";
 					pstmt = con.prepareStatement(check);
 					pstmt.setString(1, tId);
 					pstmt.setString(2, tName);
@@ -409,7 +420,7 @@ public class Test2DAO {
 					pstmt.setString(5, date2);
 					rs = pstmt.executeQuery();
 					if (date1 == "" || date2 == "") {
-						check = "SELECT * FROM test1 WHERE tId = ? AND tName = ? AND tGender = ? ORDER BY tNum DESC;";
+						check = "SELECT * FROM test2 WHERE tId = ? AND tName = ? AND tGender = ? ORDER BY tNum DESC";
 						pstmt = con.prepareStatement(check);
 						pstmt.setString(1, tId);
 						pstmt.setString(2, tName);
@@ -417,7 +428,7 @@ public class Test2DAO {
 						rs = pstmt.executeQuery();
 					}
 				} else if (date1 == "" || date2 == "") {
-					check = "SELECT * FROM test1 WHERE tId = ? AND tName = ? AND tGender = ? AND tCity = ? ORDER BY tNum DESC;";
+					check = "SELECT * FROM test2 WHERE tId = ? AND tName = ? AND tGender = ? AND tCity = ? ORDER BY tNum DESC";
 					pstmt = con.prepareStatement(check);
 					pstmt.setString(1, tId);
 					pstmt.setString(2, tName);
@@ -428,7 +439,7 @@ public class Test2DAO {
 			}
 			
 			while(rs.next()) {
-				Test1VO user = new Test1VO();
+				Test2VO user = new Test2VO();
 				
 				user.settNum(rs.getInt(1));
 				user.settId(rs.getString(2));
@@ -453,5 +464,62 @@ public class Test2DAO {
 		}
 		return userList;
 	} // 모든 조건 조회
+	
+	
+	
+	
+	
+	public List<Test2VO> test2GenderCheck(String tGender) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Test2VO> userList = new ArrayList<>();
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, id, password);
+			String check;
+			System.out.println(tGender);
+			if (tGender == null || tGender.equals("회원 전체보기")) {
+				check = "SELECT * FROM test2 ORDER BY tNum DESC";
+				pstmt = con.prepareStatement(check);
+				rs = pstmt.executeQuery();
+			} else {
+				check = "SELECT * FROM test2 WHERE tGender = ? ORDER BY tNum DESC";
+				pstmt = con.prepareStatement(check);
+				pstmt.setString(1, tGender);
+				rs = pstmt.executeQuery();
+			}
+			
+			while(rs.next()) {
+				Test2VO user = new Test2VO();
+				
+				user.settNum(rs.getInt(1));
+				user.settId(rs.getString(2));
+				user.settName(rs.getString(3));
+				user.settGender(rs.getString(4));
+				user.settCountry(rs.getString(5));
+				user.settCity(rs.getString(6));
+				
+				userList.add(user);
+			}
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+				pstmt.close();
+				rs.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return userList;
+	}
+	
+	
+	
+	
 	
 }
